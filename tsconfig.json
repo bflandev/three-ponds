@@ -6,5 +6,15 @@
 */
 {
   "files": [],
-  "references": []
+  "references": [
+    {
+      "path": "./projects/digital/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/digital/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/digital/e2e/tsconfig.json"
+    }
+]
 }

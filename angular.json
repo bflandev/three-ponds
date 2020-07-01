@@ -2,5 +2,127 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "digital": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/digital",
+      "sourceRoot": "projects/digital/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/digital",
+            "index": "projects/digital/src/index.html",
+            "main": "projects/digital/src/main.ts",
+            "polyfills": "projects/digital/src/polyfills.ts",
+            "tsConfig": "projects/digital/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/digital/src/favicon.ico",
+              "projects/digital/src/assets"
+            ],
+            "styles": [
+              "projects/digital/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/digital/src/environments/environment.ts",
+                  "with": "projects/digital/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "digital:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "digital:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "digital:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/digital/src/test.ts",
+            "polyfills": "projects/digital/src/polyfills.ts",
+            "tsConfig": "projects/digital/tsconfig.spec.json",
+            "karmaConfig": "projects/digital/karma.conf.js",
+            "assets": [
+              "projects/digital/src/favicon.ico",
+              "projects/digital/src/assets"
+            ],
+            "styles": [
+              "projects/digital/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/digital/tsconfig.app.json",
+              "projects/digital/tsconfig.spec.json",
+              "projects/digital/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/digital/e2e/protractor.conf.js",
+            "devServerTarget": "digital:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "digital:serve:production"
+            }
+          }
+        }
+      }
+    }},
+  "defaultProject": "digital"
 }
