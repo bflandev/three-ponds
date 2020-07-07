@@ -231,6 +231,7 @@
               "projects/media/src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "projects/media/src/styles.scss"
             ],
             "scripts": []
@@ -295,6 +296,7 @@
               "projects/media/src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "projects/media/src/styles.scss"
             ],
             "scripts": []
