@@ -1,25 +1,59 @@
-<mat-accordion>
-  <mat-expansion-panel hideToggle>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        This is the expansion title
-      </mat-panel-title>
-      <mat-panel-description>
-        This is a summary of the content
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <p>This is the primary content of the panel.</p>
-  </mat-expansion-panel>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Self aware panel
-      </mat-panel-title>
-      <mat-panel-description>
-        Currently I am
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <p>I'm visible because I am open</p>
-  </mat-expansion-panel>
-</mat-accordion>
+<section class="app-container mat-typography">
+
+  <mat-toolbar class="toolbar">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>videocam</mat-icon>
+          <span>Services</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>support</mat-icon>
+          <span>Contact</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>subscriptions</mat-icon>
+          <span>Portfolio</span>
+        </button>
+      </mat-menu>
+    </button>
+    <h1>Three Ponds Media</h1>
+    <span class="spacer"></span>
+    <button mat-icon-button [matMenuTriggerFor]="menu2" aria-label="Example icon-button with a menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu2="matMenu">
+      <button mat-menu-item>
+        <mat-icon>login</mat-icon>
+        <span>Log In</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>account_circle</mat-icon>
+        <span>Account</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>calendar</mat-icon>
+        <span>Events</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar>
+  <main class="main-content">
+    <h2 color="primary">Live Stream Your Event</h2>
+    <p>Do you have an important event that is social distant? Need to broadcast it to the world like a pro but don't
+      know where to start? You've come to the right place!</p>
+    <button mat-raised-button color="accent">Book Us For Your Event</button>
+    <span class="spacer"></span>
+    <h2>Just want to know what to do and buy?</h2>
+    <p>We put together a package for you, get you setup and leave you to live stream all day long!</p>
+    <button mat-raised-button color="accent">Get Setup Today</button>
+  </main>
+  <footer>
+
+  </footer>
+</section>
+
 <router-outlet></router-outlet>
