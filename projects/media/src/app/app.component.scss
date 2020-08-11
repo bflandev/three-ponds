@@ -1,45 +1,3 @@
-.app-container {
-
-
-  .toolbar {
-    background-color: transparent;
-
-    h1 {
-      color: #BB86FC;
-    }
-
-  }
-
-  .active-banner {
-    background-color: rgba($color: #121212, $alpha: .8);
-    color: rgba($color: #FFFFFF, $alpha: .87);
-  }
-
-  .main-content {
-    background: linear-gradient(#e66465, #9198e5);
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0;
-
-    button {
-      max-width: 50%;
-    }
-
-
-    h2 {
-      color: #BB86FC;
-    }
-
-    .spacer {
-      margin-bottom: 16px;
-    }
-  }
-
-
-}
-
 .spacer {
   flex: 1 1 auto;
 }
@@ -54,12 +12,148 @@
   padding-top: 102px;
 }
 
-.hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: black;
+.active-banner {
+  background-color: #121212;
   color: rgba($color: #FFFFFF, $alpha: .87);
-  height: 38em;
 }
+
+.bgimg-1,
+.bgimg-2,
+.bgimg-3 {
+  position: relative;
+  opacity: 0.65;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.bgimg-1 {
+  background-image: url("../../../../assets/images/waterfall.jpg");
+  min-height: 90vh;
+}
+
+.app-container {}
+
+// .app-container {
+
+
+//   .toolbar {
+//     //background-color: transparent;
+
+//     h1 {
+//       color: #BB86FC;
+//     }
+
+//   }
+
+//   .active-banner {
+//     background-color: #121212;
+//     // color: rgba($color: #FFFFFF, $alpha: .87);
+//   }
+
+//   .main-content {
+
+//     padding: 0;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     margin: 0;
+
+//     button {
+//       max-width: 50%;
+//     }
+
+
+//     h2 {
+//       color: #BB86FC;
+//     }
+
+//     .spacer {
+//       margin-bottom: 16px;
+//     }
+//   }
+
+
+// }
+
+// .spacer {
+//   flex: 1 1 auto;
+// }
+
+// .sticky {
+//   position: fixed;
+//   top: 0;
+//   width: 100%
+// }
+
+// .sticky+.toobar {
+//   padding-top: 102px;
+// }
+
+
+
+
+
+
+// .bgimg-1,
+// .bgimg-2,
+// .bgimg-3 {
+//   position: relative;
+//   opacity: 0.65;
+//   background-attachment: fixed;
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+
+// }
+
+// .bgimg-1 {
+//   background-image: url("../../../../assets/images/waterfall.jpg");
+//   min-height: 90vh;
+// }
+
+// .bgimg-2 {
+//   background-image: url("../../../../assets/images/img_parallax2.jpg");
+//   min-height: 60vh;
+// }
+
+// .bgimg-3 {
+//   background-image: url("../../../../assets/images/img_parallax3.jpg");
+//   min-height: 60vh;
+// }
+
+// .caption {
+//   position: absolute;
+//   left: 0;
+//   top: 50%;
+//   width: 100%;
+//   text-align: center;
+//   color: #000;
+// }
+
+// .caption span.border {
+//   background-color: #111;
+//   color: #fff;
+//   padding: 18px;
+//   font-size: 25px;
+//   letter-spacing: 10px;
+// }
+
+// h3 {
+//   letter-spacing: 5px;
+//   text-transform: uppercase;
+//   font: 20px "Lato", sans-serif;
+//   color: #111;
+// }
+
+// /* Turn off parallax scrolling for tablets and phones */
+// @media only screen and (max-device-width: 1024px) {
+
+//   .bgimg-1,
+//   .bgimg-2,
+//   .bgimg-3 {
+//     background-attachment: scroll;
+//   }
+// }
