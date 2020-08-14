@@ -1,8 +1,9 @@
 .app-container {
   max-width: 100vw;
 
-  .hero {
-    min-height: 90vh;
+  .hero,
+  .hero2 {
+    min-height: 80vh;
     width: 100%;
     color: white;
     display: flex;
@@ -10,7 +11,6 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-image: url("../../../../assets/images/livestream.png");
 
     h1,
     h2 {
@@ -24,12 +24,16 @@
     }
   }
 
+  .hero {
+    background-image: url("../../../../assets/images/livestream.png");
+  }
+
   .detail {
     min-height: 45vh;
+
   }
 
   .hero2 {
-    min-height: 90vh;
     background-image: url("../../../../assets/images/live-music.jpg");
   }
 
@@ -47,7 +51,7 @@
 
 .paralax {
   position: relative;
-  opacity: 0.65;
+  opacity: 0.85;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -58,97 +62,45 @@
   flex: 1 1 auto;
 }
 
-// .sticky {
-//   position: fixed;
-//   top: 0;
-//   width: 100%
-// }
-
-// .sticky+.toobar {
-//   padding-top: 102px;
-// }
-
-// .active-banner {
-//   background-color: #121212;
-//   color: rgba($color: #FFFFFF, $alpha: .87);
-// }
-
-// .bgimg-1,
-// .bgimg-2,
-// .bgimg-3 {
-//   position: relative;
-//   opacity: 0.65;
-//   background-attachment: fixed;
-//   background-position: center;
-//   background-repeat: no-repeat;
-//   background-size: cover;
-
-// }
-
-// .bgimg-1 {
-//   background-image: url("../../../../assets/images/waterfall.jpg");
-//   min-height: 90vh;
-// }
-
-
-
-// .app-container {
-
-
 #toolbar {
-  min-height: 10vh;
-  background-color: #111;
   z-index: 2;
-  color: rgba($color: white, $alpha: .8);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
 
-  h1 {
-    color: #BB86FC;
+.active {}
+
+.static {}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
   }
 
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
-.active-banner {
-  background-color: transparent;
-}
-
-//   .main-content {
-
-//     padding: 0;
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     margin: 0;
-
-//     button {
-//       max-width: 50%;
-//     }
-
-
-//     h2 {
-//       color: #BB86FC;
-//     }
-
-//     .spacer {
-//       margin-bottom: 16px;
-//     }
-//   }
-
-
-// }
-
-// .spacer {
-//   flex: 1 1 auto;
-// }
 
 .sticky {
   position: fixed;
   top: 0;
-  width: 100%
+  width: 100%;
+
+  .toolbar {
+    background-color: #111;
+    color: rgba($color: white, $alpha: .8);
+  }
 }
 
-.sticky+.toobar {
-  padding-top: 20vh;
-}
+
 
 
 

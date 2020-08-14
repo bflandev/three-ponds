@@ -3,66 +3,60 @@
     <h1>You Don't Need To Spend A Fortune</h1>
     <h2>To Look Like A Pro</h2>
   </section>
-  <mat-toolbar id="toolbar" [ngClass]="{'active-banner': isActive,'sticky':makeSticky}">
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+  <section id="toolbar" [ngClass]="{'active': isActive,'static': !isActive,'sticky':makeSticky}">
+    <mat-toolbar class="toolbar" *ngIf="makeSticky">
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
 
-      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-        <mat-icon>menu</mat-icon>
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <mat-icon>videocam</mat-icon>
+            <span>Services</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>support</mat-icon>
+            <span>Contact</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>subscriptions</mat-icon>
+            <span>Portfolio</span>
+          </button>
+        </mat-menu>
       </button>
-      <mat-menu #menu="matMenu">
+      <h1>Three Ponds Media</h1>
+      <span class="spacer"></span>
+      <button mat-icon-button [matMenuTriggerFor]="menu2" aria-label="Example icon-button with a menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu2="matMenu">
         <button mat-menu-item>
-          <mat-icon>videocam</mat-icon>
-          <span>Services</span>
+          <mat-icon>login</mat-icon>
+          <span>Log In</span>
         </button>
         <button mat-menu-item>
-          <mat-icon>support</mat-icon>
-          <span>Contact</span>
+          <mat-icon>recent_actors</mat-icon>
+          <span>Join</span>
         </button>
         <button mat-menu-item>
-          <mat-icon>subscriptions</mat-icon>
-          <span>Portfolio</span>
+          <mat-icon>account_circle</mat-icon>
+          <span>Account</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>event</mat-icon>
+          <span>Events</span>
         </button>
       </mat-menu>
-    </button>
-    <h1>Three Ponds Media</h1>
-    <span class="spacer"></span>
-    <button mat-icon-button [matMenuTriggerFor]="menu2" aria-label="Example icon-button with a menu">
-      <mat-icon>more_vert</mat-icon>
-    </button>
-    <mat-menu #menu2="matMenu">
-      <button mat-menu-item>
-        <mat-icon>login</mat-icon>
-        <span>Log In</span>
-      </button>
-      <button mat-menu-item>
-        <mat-icon>recent_actors</mat-icon>
-        <span>Join</span>
-      </button>
-      <button mat-menu-item>
-        <mat-icon>account_circle</mat-icon>
-        <span>Account</span>
-      </button>
-      <button mat-menu-item>
-        <mat-icon>event</mat-icon>
-        <span>Events</span>
-      </button>
-    </mat-menu>
-  </mat-toolbar>
-  <section class="detail">
-    <ul>
-      <li>Live Stream Production</li>
-      <li>Live Stream Production</li>
-      <li>Live Stream Production</li>
-      <li>Live Stream Production</li>
-      <li>Live Stream Production</li>
-      <li>Live Stream Production</li>
-      <li>Live Stream Production</li>
-      <li>Live Stream Production</li>
-      <li>Live Stream Production</li>
-      <li>Live Stream Production</li>
-      <li>Live Stream Production</li>
+    </mat-toolbar>
+    <h1 *ngIf="!makeSticky">Three Ponds Digital</h1>
+  </section>
 
-    </ul>
+  <section class="detail">
+    <div>
+      <h2>Live Streams</h2>
+      <mat-icon>airplay</mat-icon>
+    </div>
   </section>
   <section class="hero2 paralax">
     <h1>
