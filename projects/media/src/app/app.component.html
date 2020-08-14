@@ -1,4 +1,151 @@
-<section class="app-container mat-typography" (scroll)="onWindowScroll($event);">
+<section class="app-container" (scroll)="onWindowScroll($event);">
+  <section class="hero paralax">
+    <h1>You Don't Need To Spend A Fortune</h1>
+    <h2>To Look Like A Pro</h2>
+  </section>
+  <mat-toolbar id="toolbar" [ngClass]="{'active-banner': isActive,'sticky':makeSticky}">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>videocam</mat-icon>
+          <span>Services</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>support</mat-icon>
+          <span>Contact</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>subscriptions</mat-icon>
+          <span>Portfolio</span>
+        </button>
+      </mat-menu>
+    </button>
+    <h1>Three Ponds Media</h1>
+    <span class="spacer"></span>
+    <button mat-icon-button [matMenuTriggerFor]="menu2" aria-label="Example icon-button with a menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu2="matMenu">
+      <button mat-menu-item>
+        <mat-icon>login</mat-icon>
+        <span>Log In</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>recent_actors</mat-icon>
+        <span>Join</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>account_circle</mat-icon>
+        <span>Account</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>event</mat-icon>
+        <span>Events</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar>
+  <section class="detail">
+    <ul>
+      <li>Live Stream Production</li>
+      <li>Live Stream Production</li>
+      <li>Live Stream Production</li>
+      <li>Live Stream Production</li>
+      <li>Live Stream Production</li>
+      <li>Live Stream Production</li>
+      <li>Live Stream Production</li>
+      <li>Live Stream Production</li>
+      <li>Live Stream Production</li>
+      <li>Live Stream Production</li>
+      <li>Live Stream Production</li>
+
+    </ul>
+  </section>
+  <section class="hero2 paralax">
+    <h1>
+      Sound Like A Professional
+    </h1>
+  </section>
+  <section class="offer">
+    <h2 color="primary">Live Stream Your Event</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at nulla magna. Pellentesque quis euismod velit.
+      Nulla facilisi. Fusce lectus urna, mattis a pellentesque ut, vestibulum in metus. Vestibulum a porta nisi. Sed
+      nibh elit, pulvinar bibendum rutrum vel, tempus eu neque. Aliquam at erat non enim molestie ultrices gravida sit
+      amet mauris. Duis metus risus, porta id facilisis a, posuere vel urna. Ut nec bibendum libero.
+
+      Vestibulum gravida molestie aliquet. Aliquam erat volutpat. Maecenas faucibus ut magna eget pharetra. Integer
+      dictum nisl et elit accumsan euismod. Morbi pulvinar porta euismod. Praesent mollis justo diam. Duis ultrices
+      risus a felis tincidunt, eget sagittis enim maximus. Nam sodales, leo sed tristique consectetur, est velit
+      vehicula ligula, vel blandit dui metus ut mauris. Nulla erat mi, lacinia at tempus eget, vestibulum id erat.
+      Pellentesque vestibulum semper congue.
+
+      Quisque congue sem sit amet nisi aliquam, nec iaculis leo interdum. Curabitur mattis leo ligula, non facilisis
+      metus porta vel. Suspendisse eleifend et ex ac viverra. Nulla id faucibus mauris. Nam dapibus porta leo ut
+      vehicula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas
+      eros magna, varius vitae turpis eget, facilisis dictum sem. Ut commodo finibus rhoncus.
+
+      Nam aliquet feugiat nibh sit amet convallis. Mauris augue tellus, accumsan vitae dignissim sit amet, pellentesque
+      nec enim. Nulla aliquet sem enim, sit amet aliquam tortor pellentesque nec. Vivamus semper ligula a metus
+      pellentesque bibendum. Aliquam a ex non turpis pellentesque rhoncus. Integer id leo fringilla, molestie sem
+      venenatis, ultrices urna. Sed egestas pharetra odio at efficitur. Quisque sodales nibh ante, in vehicula lacus
+      rutrum ut. Phasellus a ligula sed nisi tristique euismod.
+
+      Integer aliquam massa eget diam tempor, et vulputate arcu iaculis. Phasellus euismod nec quam nec porta. Praesent
+      sem libero, ultrices nec urna vel, euismod ullamcorper ex. Phasellus suscipit turpis nec odio commodo porttitor.
+      In eu orci sem. Maecenas vitae velit enim. Donec ac ipsum in odio egestas laoreet. Sed vel sollicitudin lacus,
+      laoreet mattis quam. Nulla mattis facilisis eros, et maximus dolor interdum nec.
+
+      Morbi pharetra neque non ornare tincidunt. Nunc eget quam odio. Sed in mi mollis, vulputate magna eu, posuere
+      erat. Vivamus eu odio non turpis facilisis maximus. Integer eleifend finibus ligula, at congue enim facilisis in.
+      Curabitur tortor dui, ultrices nec gravida nec, eleifend gravida nibh. Ut eget turpis ac sapien mattis varius ac
+      id justo. Nullam dictum malesuada eros iaculis semper. Fusce ac pretium ipsum. Proin id felis tempus ipsum
+      tincidunt tincidunt. In purus est, rhoncus sit amet dignissim a, malesuada a tortor. Donec justo neque, porttitor
+      a lobortis nec, lacinia id lacus. Integer laoreet imperdiet est, vitae porta magna mollis et. Orci varius natoque
+      penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+      Phasellus varius ultrices quam, nec molestie neque dapibus id. Morbi accumsan ipsum eget leo finibus egestas. Ut
+      nec pretium nisi, id ultrices ex. Sed sed odio in nisi congue sodales nec at neque. Cras ac justo imperdiet,
+      mollis nibh sed, lobortis mi. Vestibulum fringilla felis dapibus, consequat neque eget, dignissim est. In quis
+      malesuada nulla. Aenean ullamcorper, mauris nec condimentum euismod, massa lacus blandit felis, ut maximus orci
+      ligula ut turpis. Etiam pulvinar gravida tristique. Donec a venenatis nulla, in hendrerit nibh. Vestibulum ante
+      ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed ac augue eget metus vulputate
+      elementum.
+
+      Nullam ut purus in arcu maximus cursus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras sit
+      amet tempus ex. Morbi sagittis dolor lacus, ut vestibulum libero accumsan at. Vivamus vulputate magna non nulla
+      molestie dictum. Maecenas id lacus eu ligula accumsan porta. Integer in purus in dolor pharetra egestas sit amet
+      mattis purus. Integer est urna, dignissim at elit vitae, consequat molestie justo. Nulla malesuada sagittis
+      vehicula. Morbi id eleifend velit, eget lacinia orci. In aliquam augue ex, a cursus lectus scelerisque ut.
+      Pellentesque vitae maximus ligula. Quisque consectetur tellus at orci lacinia, a fermentum urna tincidunt. Sed in
+      tempor arcu. Nunc fermentum odio at erat malesuada maximus. Vivamus faucibus mi gravida sodales dignissim.
+
+      Vestibulum mattis dui vitae tortor interdum volutpat. Etiam ullamcorper nulla mi, vitae rhoncus tellus faucibus
+      sed. Pellentesque ut velit dui. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+      mus. Vestibulum lectus odio, feugiat non gravida sit amet, porta eu ex. Cras congue libero ut maximus faucibus.
+      Etiam porttitor, ipsum sit amet molestie pellentesque, nibh arcu lacinia sem, sit amet placerat sapien felis id
+      tellus. Vestibulum libero mi, scelerisque sed urna eu, pulvinar varius nunc. Cras quis neque dolor. Donec commodo
+      nibh tincidunt ipsum ultricies, in viverra libero dapibus. Suspendisse mi turpis, vulputate sed dictum non,
+      vestibulum non diam. Praesent fermentum rutrum tellus id viverra. Pellentesque quis placerat purus.
+
+      Nullam posuere orci quis rhoncus malesuada. Sed laoreet neque sit amet est suscipit dictum. Sed eu placerat
+      ligula. Aenean nec vehicula risus. Morbi tincidunt pretium facilisis. Pellentesque habitant morbi tristique
+      senectus et netus et malesuada fames ac turpis egestas. Morbi sed ipsum non nibh ultricies tristique. Donec
+      sagittis auctor convallis. Sed feugiat molestie metus, eu porta nulla. Ut hendrerit viverra suscipit. Quisque
+      tincidunt sapien magna, eu dictum velit pellentesque a. Etiam vehicula lorem vitae euismod elementum. Nulla
+      venenatis est egestas nibh semper, at auctor magna porttitor.
+    </p>
+  </section>
+  <footer id="footer">
+    dghdfgh
+  </footer>
+</section>
+
+
+<!-- <section class="app-container " (scroll)="onWindowScroll($event);">
   <section class="bgimg-1">
     <section class="caption">
       <h1> The World Has Changed</h1>
@@ -128,7 +275,7 @@
   <footer>
 
   </footer>
-</section>
+</section> -->
 
 <router-outlet></router-outlet>
 

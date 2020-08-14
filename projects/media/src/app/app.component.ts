@@ -20,9 +20,7 @@ export class AppComponent {
     const sticky = document.getElementById('toolbar').offsetTop;
     if (window.scrollY > sticky) {
       this.makeSticky = true;
-      this.isActive = true;
     } else {
-      this.isActive = false;
       this.makeSticky = false;
     }
 
