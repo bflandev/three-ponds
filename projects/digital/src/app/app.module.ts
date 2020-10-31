@@ -8,9 +8,11 @@ import { VendorsModule } from 'projects/vendors/src/lib/vendors.module';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { SecureComponent } from './secure/secure.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SecureComponent
   ],
   imports: [
     BrowserModule,

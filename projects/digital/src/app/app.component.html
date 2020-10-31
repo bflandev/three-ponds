@@ -1,3 +1,4 @@
+<a routerLink="secure">Secure</a>
 <div *ngIf="auth.user$ | async as user; else login">
   <h1>{{user.displayName}}</h1>
   <img [src]="user.photoURL" />
