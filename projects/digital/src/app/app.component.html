@@ -1,14 +1,41 @@
-<a routerLink="secure">Secure</a>
+<!-- <header>
+  <a routerLink="secure">Secure</a>
 <div *ngIf="auth.user$ | async as user; else login">
-  <h1>{{user.displayName}}</h1>
-  <img [src]="user.photoURL" />
-  <a href='mailto:{{user.email}}'>{{user.email}}</a>
-<!-- <pre>{{user | json}}</pre> -->
-<mat-divider></mat-divider>
-<button mat-button (click)="auth.signOut()">Sign Out</button>
+
 </div>
 <ng-template #login>
   <button mat-button (click)="auth.googleSignin()">Sign in with Google</button>
 </ng-template>
 
 <router-outlet></router-outlet>
+</header> -->
+<section class="landing" *ngIf="auth.user$ | async as user; else hero">
+  <header>
+    <div>
+    </div>
+    <div class="avatar">
+      <span> Welcome, {{user.displayName}}</span>
+      <span>
+        <img [src]="user.photoURL" />
+        <a  (click)="auth.signOut()">Sign Out</a>
+      </span>
+    </div>
+  </header>
+  <main>
+    <p>this is the main section.</p>
+  </main>
+  <footer>This is the footer</footer>
+
+</section>
+<ng-template #hero >
+  <section class="hero">
+    <header>
+
+      <button mat-button (click)="auth.googleSignin()">Sign in</button>
+    </header>
+    <main>
+      <h1>You need an kick ass app.</h1>
+      <h2>We can help</h2>
+    </main>
+  </section>
+</ng-template>
