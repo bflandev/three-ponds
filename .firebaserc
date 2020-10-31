@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "three-ponds-digital": {
+      "hosting": {
+        "digital": [
+          "three-ponds-digital"
+        ]
+      }
+    }
+  }
+}

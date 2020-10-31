@@ -27,6 +27,10 @@
       "tools": [
         "dist/tools/tools",
         "dist/tools"
+      ],
+      "auth": [
+        "dist/auth/auth",
+        "dist/auth"
       ]
     }
   }

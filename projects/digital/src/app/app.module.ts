@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { VendorsModule } from 'projects/vendors/src/lib/vendors.module';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 @NgModule({
   declarations: [
     AppComponent
@@ -13,7 +16,9 @@ import { VendorsModule } from 'projects/vendors/src/lib/vendors.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    VendorsModule
+    VendorsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
