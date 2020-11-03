@@ -1,11 +1,5 @@
 {
-  "targets": {
-    "three-ponds-digital": {
-      "hosting": {
-        "digital": [
-          "three-ponds-digital"
-        ]
-      }
-    }
+  "projects": {
+    "default": "three-ponds-digital"
   }
 }
