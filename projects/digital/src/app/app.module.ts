@@ -9,10 +9,17 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { SecureComponent } from './secure/secure.component';
+import { TaskComponent } from './task/task.component';
+import { TasksComponent } from './tasks/tasks.component';
+import { TaskDialogComponent } from './task-dialog/task-dialog.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
-    SecureComponent
+    SecureComponent,
+    TaskComponent,
+    TasksComponent,
+    TaskDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +27,8 @@ import { SecureComponent } from './secure/secure.component';
     BrowserAnimationsModule,
     VendorsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

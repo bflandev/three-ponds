@@ -1,0 +1,24 @@
+.content-container {
+  max-width: 1400px;
+  margin: auto;
+}
+
+.container-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container {
+  width: 400px;
+  margin: 0 25px 25px 0;
+}
+
+.list {
+  border: solid 1px #ccc;
+  min-height: 60px;
+  border-radius: 4px;
+}
+
+app-new-task {
+  margin-bottom: 16px;
+}

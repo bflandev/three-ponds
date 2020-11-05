@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SecureComponent } from './secure/secure.component';
 import {AuthGuard} from 'projects/auth/src/lib/auth-guard.guard';
+import { TasksComponent } from './tasks/tasks.component';
 
 
-const routes: Routes = [{path: 'secure', component: SecureComponent, canActivate: [AuthGuard]}];
+const routes: Routes = [{path: 'tasks', component: TasksComponent, canActivate: [AuthGuard]}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
