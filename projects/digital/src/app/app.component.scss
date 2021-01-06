@@ -57,35 +57,39 @@
 //    color: rgba($color: #FFFF, $alpha: .5);
 //  }
 
+// :host {
+//   display: grid;
+//   place-content: center;
+//   text-align: center;
+//   height: 100vh;
+//   background-color: black;
+//   color: rgba($color: #FFFF, $alpha: .5);
+//   font-size: 24px;
+//   line-height: 36px;
+
+//   h1 {
+//     font-size: 64px;
+//     line-height: 80px;
+//   }
+
+//   h2 {
+//     font-size: 48px;
+//     line-height: 56px;
+//   }
+
+//   a {
+//     text-decoration: underline;
+//   }
+
+//   p {
+//     padding: 8px;
+//   }
+
+//   button {
+//     margin: 8px;
+//   }
+// }
+
 :host {
-  display: grid;
-  place-content: center;
-  text-align: center;
-  height: 100vh;
-  background-color: black;
-  color: rgba($color: #FFFF, $alpha: .5);
-  font-size: 24px;
-  line-height: 36px;
-
-  h1 {
-    font-size: 64px;
-    line-height: 80px;
-  }
-
-  h2 {
-    font-size: 48px;
-    line-height: 56px;
-  }
-
-  a {
-    text-decoration: underline;
-  }
-
-  p {
-    padding: 8px;
-  }
-
-  button {
-    margin: 8px;
-  }
+  padding: 16px;
 }

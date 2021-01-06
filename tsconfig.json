@@ -1,46 +1,37 @@
-/*
-  This is a "Solution Style" tsconfig.json file, and is used by editors and TypeScript’s language server to improve development experience.
-  It is not intended to be used to perform a compilation.
-
-  To learn more about this file see: https://angular.io/config/solution-tsconfig.
-*/
 {
-  "files": [],
-  "references": [{
-      "path": "./projects/digital/tsconfig.app.json"
-    },
-    {
-      "path": "./projects/digital/tsconfig.spec.json"
-    },
-    {
-      "path": "./projects/digital/e2e/tsconfig.json"
-    },
-    {
-      "path": "./projects/vendors/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/vendors/tsconfig.spec.json"
-    },
-    {
-      "path": "./projects/tools/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/tools/tsconfig.spec.json"
-    },
-    {
-      "path": "./projects/media/tsconfig.app.json"
-    },
-    {
-      "path": "./projects/media/tsconfig.spec.json"
-    },
-    {
-      "path": "./projects/media/e2e/tsconfig.json"
-    },
-    {
-      "path": "./projects/auth/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/auth/tsconfig.spec.json"
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "es2020",
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "paths": {
+      "material": [
+        "dist/material/material",
+        "dist/material"
+      ],
+      "vendors": [
+        "dist/vendors/vendors",
+        "dist/vendors"
+      ],
+      "tools": [
+        "dist/tools/tools",
+        "dist/tools"
+      ],
+      "auth": [
+        "dist/auth/auth",
+        "dist/auth"
+      ]
     }
-  ]
+  }
 }
