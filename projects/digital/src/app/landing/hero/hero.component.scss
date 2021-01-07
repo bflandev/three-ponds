@@ -68,6 +68,9 @@ form {
         display: flex;
         flex-direction: column;
     }
+    .card {
+        margin: 4px 0 4px 0;
+    }
     .hero {
         height: auto;
         min-height: 60vh;
