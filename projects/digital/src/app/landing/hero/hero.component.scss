@@ -9,19 +9,26 @@
     justify-content: center;
     p {
         padding: 16px;
+        display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     }
 }
+
+.hero:nth-child(even) {
+    background-color: rgba($color: #fff, $alpha: .3);
+}
+
 .cards {
     // background-color: white;
     // color: black;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 8px;
-    .card {
-        background-color: white;
-    color: black;
-    }
 }
+
+
 .tools {
     display: flex;
     justify-content: flex-end;
@@ -29,10 +36,49 @@
 }
 .title {
     h1 {
-        color: #d32f2f;
+        color: #fe0000;
         font-size: 64px;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
+    margin-bottom: 32px;
 }
+
+form {
+    background-color: rgba($color: #FFF, $alpha: .5);
+    color: black;
+    display: grid;
+    width: 50%;
+    border-radius: 16px;
+    padding: 32px;
+    button {
+        background-color: rgba($color: #000000, $alpha: .2);
+        color: white;
+    }
+}
+
+@media (max-width: 600px) {
+    .cards {
+        display: flex;
+        flex-direction: column;
+    }
+    .hero {
+        height: auto;
+        min-height: 60vh;
+    }
+    .title {
+        h1 {
+            font-size: 48px;
+        }
+    }
+    form {
+        width: 100%;
+        border-radius: 4px;
+        padding: 8px;
+    }
+  }
+
+  input:-internal-autofill-selected {
+      background-color: transparent !important;
+  }

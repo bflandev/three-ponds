@@ -6,8 +6,9 @@
    
     <section class="title">
         <h1>3Ponds Digital</h1>
+        <p>You need an effective online prescence. Fast. We can help!</p>
     </section>
-    <p>You need an effective online prescence. Fast. We can help!</p>
+    
     <section class="cards">
         <mat-card class="card">
             <mat-card-header>
@@ -52,13 +53,51 @@
 </section>
 <section class="hero">
     <h1>Application Development</h1>
+    <p>Years of exerience in Enterprise Application Development with a focus on UI/UX and API development.</p>
+    <ul>
+      <li>Angular 2+</li>
+      <li>Typescript</li>
+      <li>ES6</li>
+      <li>API Development</li>
+      <li>Node.Js</li>
+      <li>RXJS</li>
+      <li>CSS</li>
+      <li>Native Apps</li>
+    </ul>
+    <p>Let us know what you need and we'll make it real.</p>
 </section>
 <section class="hero">
     <h1>Business Portals</h1>
+    <p>Pick from our prexisting apps and join for a monthly fee</p>
+    <ul>
+      <li>Appointment</li>
+      <li>Checklist</li>
+      <li>E-Commerce Store</li>
+      <li>Restoration Management</li>
+    </ul>
 </section>
 <section class="hero">
     <h1>Developer Training</h1>
+    <p>Take your team to another level.</p>
+    <ul>
+      <li>Tutorial Videos</li>
+      <li>Embedded Resources</li>
+      <li>Remote Code Reviews</li>
+    </ul>
 </section>
 <section class="hero">
     <h1>Let's Get Started</h1>
+    <form>
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Jamie Doe, etc" autocomplete="off">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your email</mat-label>
+        <input matInput placeholder="pat@example.com" [formControl]="email" required autocomplete="off">
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <button type="submit" mat-raised-button >Submit</button>
+    </form>
 </section>
