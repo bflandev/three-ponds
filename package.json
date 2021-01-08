@@ -25,6 +25,7 @@
     "application": "^0.1.4",
     "firebase": "^7.0.0 || ^8.0.0",
     "material": "^0.4.3",
+    "ngx-captcha": "^8.0.1",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"

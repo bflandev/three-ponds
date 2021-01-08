@@ -1,5 +1,19 @@
 <h1>Let's Get Started</h1>
-    <form [formGroup]="contactForm" (ngSubmit)="onSubmit(contactForm.value)">
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit(contactForm.value)" *ngIf="!submitted">
+      <ngx-recaptcha2 #captchaElem
+    [siteKey]="siteKey"
+    (reset)="handleReset()"
+    (expire)="handleExpire()"
+    (error)="handleError()"
+    (load)="handleLoad()"
+    (success)="handleSuccess($event)"
+    [useGlobalDomain]="false"
+    [size]="size"
+    [hl]="lang"
+    [theme]="theme"
+    [type]="type"
+    formControlName="recaptcha">
+  </ngx-recaptcha2>
       <mat-form-field appearance="fill">
         <mat-label>Name</mat-label>
         <input matInput placeholder="Jamie Doe, etc" autocomplete="off" required formControlName="name">
@@ -16,5 +30,22 @@
         <textarea matInput placeholder="I teach guitar on zoom." formControlName="message" required autocomplete="off"></textarea>
         <mat-error *ngIf="email.invalid">Required</mat-error>
       </mat-form-field>
+      <ngx-recaptcha2 #captchaElem
+    [siteKey]="siteKey"
+    (reset)="handleReset()"
+    (expire)="handleExpire()"
+    (error)="handleError()"
+    (load)="handleLoad()"
+    (success)="handleSuccess($event)"
+    [useGlobalDomain]="false"
+    [size]="size"
+    [hl]="lang"
+    [theme]="theme"
+    [type]="type"
+    formControlName="recaptcha">
+  </ngx-recaptcha2>
       <button [disabled]="!contactForm.valid" type="submit" mat-raised-button >Submit</button>
     </form>
+    <p *ngIf="submitted">
+      Thanks, {{name.value}}. 
+    </p>

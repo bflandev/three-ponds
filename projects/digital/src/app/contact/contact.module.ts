@@ -5,6 +5,7 @@ import { ContactRoutingModule } from './contact-routing.module';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { VendorsModule } from 'projects/vendors/src/public-api';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxCaptchaModule } from 'ngx-captcha';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ContactRoutingModule,
     VendorsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxCaptchaModule
   ],
   exports: [
     ContactFormComponent
