@@ -1,7 +1,7 @@
 .hero {
-    font-size: 24px;
+ 
     padding: 16px;
-    height: 60vh;
+    min-height: 60vh;
     width: 100%;
     border: black dotted 1px;
     display: flex;
@@ -39,9 +39,11 @@
     padding: 0 0 0 16px;
     h1 {
         color: #fe0000;
+        font-size: 34px;
     }
 }
 .title {
+    margin-top: 64px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -50,9 +52,12 @@
     h1 {
         color: #fe0000;
         font-size: 64px;
-        text-shadow: 2px 2px black;
+        text-shadow: 4px 4px black;
     }
     margin-bottom: 32px;
+    p {
+        font-size: 32px;
+    };
 }
 .form {
     padding: 32px;
