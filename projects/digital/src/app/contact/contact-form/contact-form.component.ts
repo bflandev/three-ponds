@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ReCaptchaV3Service } from 'ngx-captcha';
 import { ContactRequest } from '../contact.model';
 
 @Component({
@@ -11,14 +12,20 @@ import { ContactRequest } from '../contact.model';
 export class ContactFormComponent implements OnInit {
   contactForm: FormGroup;
   submitted = false;
-  siteKey = '6LfwFSUaAAAAAMZY2bTKXmgskpoyKtSM0B58fI1A';
+  siteKey = '6Lc3ISUaAAAAAJNcwQ-v-hEiKW-kCJqZjFpnA-ck';
 
   useGlobalDomain=false;
   size = 'Normal';
   lang = 'En';
   theme = "Light"
   type = 'Image';
-  constructor(private fb: FormBuilder, private store: AngularFirestore) { }
+  constructor(private fb: FormBuilder, private store: AngularFirestore, private reCaptchaV3Service: ReCaptchaV3Service) {
+    this.reCaptchaV3Service.execute(this.siteKey, 'homepage', (token) => {
+      console.log('This is your token: ', token);
+    }, {
+        useGlobalDomain: false
+    });
+   }
 
   ngOnInit(): void {
     this.contactForm = this.fb.group({
