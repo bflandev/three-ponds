@@ -30,19 +30,20 @@
         <textarea matInput placeholder="I teach guitar on zoom." formControlName="message" required autocomplete="off"></textarea>
         <mat-error *ngIf="email.invalid">Required</mat-error>
       </mat-form-field>
-      <ngx-recaptcha2 #captchaElem
-    [siteKey]="siteKey"
-    (reset)="handleReset()"
-    (expire)="handleExpire()"
-    (error)="handleError()"
-    (load)="handleLoad()"
-    (success)="handleSuccess($event)"
-    [useGlobalDomain]="false"
-    [size]="size"
-    [hl]="lang"
-    [theme]="theme"
-    [type]="type"
-    formControlName="recaptcha">
+      <ngx-recaptcha2 #captchaElem class="captcha"
+      [siteKey]="siteKey"
+      (reset)="handleReset()"
+      (expire)="handleExpire()"
+      (error)="handleError()"
+      (load)="handleLoad()"
+      (success)="handleSuccess($event)"
+      [useGlobalDomain]="false"
+      [size]="size"
+      [hl]="lang"
+      [theme]="theme"
+      [type]="type"
+      formControlName="recaptcha"
+    >
   </ngx-recaptcha2>
       <button [disabled]="!contactForm.valid" type="submit" mat-raised-button >Submit</button>
     </form>

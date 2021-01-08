@@ -16,6 +16,11 @@
 form {
     display: grid;
     width: 100%;
+    
+}
+
+.captcha{
+    margin-bottom: 16px;
 }
 
 @media (max-width: 600px) {
