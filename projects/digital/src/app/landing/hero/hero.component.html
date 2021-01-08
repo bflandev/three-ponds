@@ -1,12 +1,13 @@
 
  <section class="tools">
+  <h1>3Ponds Digital</h1>
     <button mat-button>Sign In</button>
 </section>
 <section class="hero">
    
     <section class="title">
         <h1>3Ponds Digital</h1>
-        <p>You need an effective online prescence. Fast. We can help!</p>
+        <p>Multimedia For The Mordern Age</p>
     </section>
     
     <section class="cards">
@@ -16,7 +17,7 @@
             </mat-card-header>
             <mat-card-content>
               <p>
-                Enterprise Application Develop made easy. Embed our experts in your team or contract out applications.
+                Enterprise achitecture, design and development for the web, tablet and mobile spaces.
               </p>
             </mat-card-content>
             <mat-card-actions>
@@ -29,7 +30,7 @@
             </mat-card-header>
             <mat-card-content>
               <p>
-               Pick one of our portals and get started today!
+               Subscription based services for common business needs. Get started today!
               </p>
             </mat-card-content>
             <mat-card-actions>
@@ -85,19 +86,6 @@
       <li>Remote Code Reviews</li>
     </ul>
 </section>
-<section class="hero">
-    <h1>Let's Get Started</h1>
-    <form>
-      <mat-form-field appearance="fill">
-        <mat-label>Name</mat-label>
-        <input matInput placeholder="Jamie Doe, etc" autocomplete="off">
-      </mat-form-field>
-
-      <mat-form-field appearance="fill">
-        <mat-label>Enter your email</mat-label>
-        <input matInput placeholder="pat@example.com" [formControl]="email" required autocomplete="off">
-        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-      </mat-form-field>
-      <button type="submit" mat-raised-button >Submit</button>
-    </form>
+<section class="form">
+  <app-contact-form></app-contact-form>
 </section>

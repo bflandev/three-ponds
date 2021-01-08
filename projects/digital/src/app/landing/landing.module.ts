@@ -5,6 +5,7 @@ import { LandingRoutingModule } from './landing-routing.module';
 import { HeroComponent } from './hero/hero.component';
 import { VendorsModule } from 'projects/vendors/src/public-api';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ContactModule } from '../contact/contact.module';
 
 
 @NgModule({
@@ -13,8 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     LandingRoutingModule,
     VendorsModule,
-    FormsModule,
-    ReactiveFormsModule
+    ContactModule
   ]
 })
 export class LandingModule { }
