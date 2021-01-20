@@ -1,19 +1,6 @@
 <h1>Let's Talk</h1>
     <form [formGroup]="contactForm" (ngSubmit)="onSubmit(contactForm.value)" *ngIf="!submitted">
-      <ngx-recaptcha2 #captchaElem
-    [siteKey]="siteKey"
-    (reset)="handleReset()"
-    (expire)="handleExpire()"
-    (error)="handleError()"
-    (load)="handleLoad()"
-    (success)="handleSuccess($event)"
-    [useGlobalDomain]="false"
-    [size]="size"
-    [hl]="lang"
-    [theme]="theme"
-    [type]="type"
-    formControlName="recaptcha">
-  </ngx-recaptcha2>
+     
       <mat-form-field appearance="fill">
         <mat-label>Name</mat-label>
         <input matInput placeholder="Jamie Doe, etc" autocomplete="off" required formControlName="name">

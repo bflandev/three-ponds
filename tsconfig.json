@@ -31,6 +31,10 @@
       "auth": [
         "dist/auth/auth",
         "dist/auth"
+      ],
+      "appointment": [
+        "dist/appointment/appointment",
+        "dist/appointment"
       ]
     }
   }

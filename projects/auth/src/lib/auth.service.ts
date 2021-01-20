@@ -32,8 +32,9 @@ user$: Observable<User>;
 
   async googleSignin() {
     const provider = new firebase.auth.GoogleAuthProvider();
-    const credential = await this.afAuth.signInWithPopup(provider);
-    return this.updateUserData(credential.user);
+    const credential = await this.afAuth.signInWithRedirect(provider);
+   // this.updateUserData(credential.user);
+    await this.router.navigate(['/user']);
   }
 
   async signOut() {

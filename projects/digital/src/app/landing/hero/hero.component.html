@@ -1,7 +1,9 @@
-
- <section class="tools">
+<section class="tools">
   <h1>3Ponds Digital</h1>
-    <button mat-button>Sign In</button>
+    <button *ngIf="!(auth.user$ | async)" mat-button (click)="auth.googleSignin()" matTooltip="Sign in with your Google account">Sign In</button>
+    <button *ngIf="(auth.user$ | async)" mat-button (click)="auth.signOut()" matTooltip="Sign in with your Google account">Sign Out</button>
+    <!-- <button *ngIf="auth.user$ | async as user" (click)="auth.signOut()">{{user.displayName}}</button> -->
+    <!-- <button *ngIf="auth.user$ | async" (click)="auth.signOut()">Sign Out</button> -->
 </section>
 <section class="hero">
    
@@ -9,7 +11,6 @@
         <h1>3Ponds Digital</h1>
         <p>Multimedia For The Modern Age</p>
     </section>
-    
     <section class="cards">
         <mat-card class="card">
             <mat-card-header>
