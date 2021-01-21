@@ -28,7 +28,7 @@
               "projects/digital/src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "scss/mat-theme.scss",
               "projects/digital/src/styles.scss"
             ],
             "scripts": []
@@ -92,7 +92,7 @@
               "projects/digital/src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "scss/mat-theme.scss",
               "projects/digital/src/styles.scss"
             ],
             "scripts": []
@@ -106,9 +106,7 @@
               "projects/digital/tsconfig.spec.json",
               "projects/digital/e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -162,9 +160,7 @@
               "projects/vendors/tsconfig.lib.json",
               "projects/vendors/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -202,9 +198,7 @@
               "projects/tools/tsconfig.lib.json",
               "projects/tools/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -233,9 +227,7 @@
               "projects/media/src/favicon.ico",
               "projects/media/src/assets"
             ],
-            "styles": [
-              "projects/media/src/styles.scss"
-            ],
+            "styles": ["projects/media/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -296,10 +288,7 @@
               "projects/media/src/favicon.ico",
               "projects/media/src/assets"
             ],
-            "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
-              "projects/media/src/styles.scss"
-            ],
+            "styles": ["scss/mat-theme.scss", "projects/media/src/styles.scss"],
             "scripts": []
           }
         },
@@ -311,9 +300,7 @@
               "projects/media/tsconfig.spec.json",
               "projects/media/e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -363,9 +350,7 @@
               "projects/auth/tsconfig.lib.json",
               "projects/auth/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -403,9 +388,45 @@
               "projects/appointment/tsconfig.lib.json",
               "projects/appointment/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "restoration": {
+      "projectType": "library",
+      "root": "projects/restoration",
+      "sourceRoot": "projects/restoration/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/restoration/tsconfig.lib.json",
+            "project": "projects/restoration/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/restoration/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/restoration/src/test.ts",
+            "tsConfig": "projects/restoration/tsconfig.spec.json",
+            "karmaConfig": "projects/restoration/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/restoration/tsconfig.lib.json",
+              "projects/restoration/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
           }
         }
       }

@@ -35,6 +35,10 @@
       "appointment": [
         "dist/appointment/appointment",
         "dist/appointment"
+      ],
+      "restoration": [
+        "dist/restoration/restoration",
+        "dist/restoration"
       ]
     }
   }

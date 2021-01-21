@@ -22,7 +22,7 @@ export class AppComponent implements OnInit, OnDestroy {
       } else {
         this.router.navigate(['/']);
       }
-    });
+    }); 
   }
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
