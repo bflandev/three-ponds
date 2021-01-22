@@ -7,14 +7,16 @@ import { AuthService } from 'projects/auth/src/public-api';
   styleUrls: ['./session.component.scss']
 })
 export class SessionComponent implements OnInit {
-  zoom = 12
+  lat: number;
+  lng: number;
+  zoom = 20
   center: google.maps.LatLngLiteral
   options: google.maps.MapOptions = {
     mapTypeId: 'hybrid',
     zoomControl: false,
     scrollwheel: false,
     disableDoubleClickZoom: true,
-    maxZoom: 15,
+    maxZoom: 25,
     minZoom: 8,
   }
 
@@ -26,7 +28,17 @@ export class SessionComponent implements OnInit {
         lat: position.coords.latitude,
         lng: position.coords.longitude,
       }
+      this.lat = position.coords.latitude;
+      this.lng = position.coords.longitude;
     })
+  }
+
+  zoomIn() {
+    if (this.zoom < this.options.maxZoom) this.zoom++
+  }
+
+  zoomOut() {
+    if (this.zoom > this.options.minZoom) this.zoom--
   }
 
 }
