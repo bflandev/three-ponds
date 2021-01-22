@@ -70,8 +70,41 @@ $green-palette: (
   ),
 );
 
+$gray-palette: (
+  50: #eeeeee,
+  100: #d4d5d4,
+  200: #b8b9b8,
+  300: #9b9d9b,
+  400: #858885,
+  500: #707370,
+  600: #686b68,
+  700: #5d605d,
+  800: #535653,
+  900: #414341,
+  A100: #aaf7aa,
+  A200: #7bf27b,
+  A400: #3bff3b,
+  A700: #22ff22,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $light-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
+  ),
+);
+
 $three-ponds-primary: mat-palette($green-palette, 900);
-$three-ponds-accent: mat-palette($mat-pink, A200, A100, A400);
+$three-ponds-accent: mat-palette($gray-palette);
 $three-ponds-warn: mat-palette($mat-red);
 
 $three-ponds-theme: mat-light-theme(

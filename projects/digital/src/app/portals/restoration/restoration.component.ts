@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'projects/auth/src/public-api';
 
 @Component({
   selector: 'app-restoration',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RestorationComponent implements OnInit {
 
-  constructor() { }
+  constructor(public auth: AuthService) { }
 
   ngOnInit(): void {
   }
