@@ -8,6 +8,7 @@
     </mat-toolbar>
     <main>
         <h2>Welcome, {{user.displayName}}</h2>
+        <img [src]="user.photoURL">
         <button color="accent" mat-raised-button [routerLink]="['../portals']">Log Restoration Hours</button>
         <button mat-raised-button (click)="auth.signOut()">Log Out</button>
     </main>

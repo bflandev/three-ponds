@@ -1,4 +1,10 @@
 form {
   background-color: white;
   color: #000;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+section {
+  margin: 8px 0 8px 0;
 }

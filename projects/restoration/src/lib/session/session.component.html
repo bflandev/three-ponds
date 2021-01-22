@@ -1,4 +1,31 @@
-<google-map
+<form>
+  <h1>Start A Session</h1>
+  <mat-form-field appearance="fill">
+    <mat-label>Project</mat-label>
+    <mat-select >
+      <mat-option>Clear</mat-option>
+      <mat-option value="valid">Kitchen's Lane Restoration</mat-option>
+    </mat-select>
+    <mat-error *ngIf="selected.hasError('required')">You must make a selection</mat-error>
+    <mat-error *ngIf="selected.hasError('pattern') && !selected.hasError('required')">
+      Your selection is invalid
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Type of Work</mat-label>
+    <mat-select >
+      <mat-option>Clear</mat-option>
+      <mat-option value="valid">Invasive Plant Removal</mat-option>
+      <mat-option value="valid">Planting</mat-option>
+    </mat-select>
+    <mat-error *ngIf="selected.hasError('required')">You must make a selection</mat-error>
+    <mat-error *ngIf="selected.hasError('pattern') && !selected.hasError('required')">
+      Your selection is invalid
+    </mat-error>
+  </mat-form-field>
+  <h2>Geolocation</h2>
+  <mat-spinner style="margin:0 auto; padding: 8px"  [diameter]="100" *ngIf="!lat || !lng"></mat-spinner>
+  <google-map *ngIf="lat && lng"
 height="500px"
   width="100%"
   [zoom]="zoom"
@@ -6,21 +33,12 @@ height="500px"
   [options]="options"
 >
 </google-map>
-<button (click)="zoomIn()">Zoom in</button>
-<button (click)="zoomOut()">Zoom out</button>
-<form>
-  <h1>Start A Session</h1>
-  <mat-form-field appearance="fill">
-    <mat-label>Choose one</mat-label>
-    <mat-select >
-      <mat-option>Clear</mat-option>
-      <mat-option value="valid">Kitchen's Lane Restoration</mat-option>
-    </mat-select>
-    <mat-hint>Errors appear instantly!</mat-hint>
-    <mat-error *ngIf="selected.hasError('required')">You must make a selection</mat-error>
-    <mat-error *ngIf="selected.hasError('pattern') && !selected.hasError('required')">
-      Your selection is invalid
-    </mat-error>
-  </mat-form-field>
+<section>
+  <button mat-raised-button (click)="zoomIn()">Zoom in</button>
+<button mat-raised-button (click)="zoomOut()">Zoom out</button>
+</section>
+<section>
+  <button mat-raised-button color="accent">Start</button>
+</section>
 </form>
 
