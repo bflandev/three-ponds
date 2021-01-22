@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SessionComponent } from './session.component';
 import { VendorsModule } from 'projects/vendors/src/public-api';
 import { GoogleMap, GoogleMapsModule } from '@angular/google-maps';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -11,6 +12,8 @@ import { GoogleMap, GoogleMapsModule } from '@angular/google-maps';
   imports: [
     CommonModule,
     VendorsModule,
+    FormsModule,
+    ReactiveFormsModule,
     GoogleMapsModule
   ],
   exports: [SessionComponent]
