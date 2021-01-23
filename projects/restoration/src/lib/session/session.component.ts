@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { AuthService } from 'projects/auth/src/public-api';
+import { BehaviorSubject } from 'rxjs';
+import { RestorationSession } from './models/session.model';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -20,7 +23,7 @@ export class SessionComponent implements OnInit {
   zoom = 20
   center: google.maps.LatLngLiteral
   options: google.maps.MapOptions = {
-    mapTypeId: 'hybrid',
+    mapTypeId: 'roadmap',
     zoomControl: false,
     scrollwheel: false,
     disableDoubleClickZoom: true,
@@ -45,7 +48,9 @@ export class SessionComponent implements OnInit {
 
   matcher = new MyErrorStateMatcher();
 
-  constructor(public auth: AuthService) { }
+ marker: any;
+
+  constructor(public auth: AuthService, private store: AngularFirestore) { }
 
   ngOnInit(): void {
     navigator.geolocation.getCurrentPosition( position => {
@@ -55,6 +60,18 @@ export class SessionComponent implements OnInit {
       }
       this.lat = position.coords.latitude;
       this.lng = position.coords.longitude;
+      this.marker = {
+        position: {
+          lat: this.lat,
+          lng: this.lng,
+        },
+        label: {
+          color: 'red',
+          text: 'Restoration Area',
+        },
+        title: 'Restoration Area',
+        options: { animation: google.maps.Animation.BOUNCE },
+      }
     })
   }
 
