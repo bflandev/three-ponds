@@ -103,8 +103,8 @@ $gray-palette: (
   ),
 );
 
-$three-ponds-primary: mat-palette($green-palette, 900);
-$three-ponds-accent: mat-palette($gray-palette);
+$three-ponds-primary: mat-palette($green-palette);
+$three-ponds-accent: mat-palette($gray-palette, 700);
 $three-ponds-warn: mat-palette($mat-red);
 
 $three-ponds-theme: mat-light-theme(

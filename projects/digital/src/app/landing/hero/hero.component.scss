@@ -1,9 +1,14 @@
+:host {
+  padding: 0;
+}
+
 .hero {
+  background-color: rgba($color: #174303, $alpha: 0.7);
+  color: #e3e8e1;
   font-size: 24px;
   padding: 16px;
   min-height: 60vh;
   width: 100%;
-  border: black dotted 1px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,7 +23,8 @@
 }
 
 .hero:nth-child(even) {
-  background-color: rgba($color: #fff, $alpha: 0.1);
+  background-color: #e3e8e1;
+  color: #174303;
 }
 
 .cards {
@@ -27,6 +33,11 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 8px;
+}
+
+.card {
+  background-color: #3a5f29;
+  color: #e3e8e1;
 }
 
 .tools {
@@ -38,7 +49,6 @@
   max-width: 100%;
   padding: 0 0 0 16px;
   h1 {
-    color: #fe0000;
     font-size: 34px;
   }
 }
@@ -48,11 +58,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-shadow: 2px 2px black;
+
   h1 {
-    color: #fe0000;
     font-size: 64px;
-    text-shadow: 4px 4px black;
   }
   margin-bottom: 32px;
   p {
@@ -64,7 +72,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgba($color: #fff, $alpha: 0.1);
+  background-color: #071e01;
 }
 
 @media (max-width: 600px) {
@@ -74,16 +82,19 @@
   }
   .card {
     margin: 4px 0 4px 0;
+    p {
+      font-size: 24px;
+    }
   }
   .hero {
     height: auto;
-    min-height: 60vh;
+    min-height: 80vh;
     font-size: 18px;
-    color: rgba($color: #fff, $alpha: 0.7);
   }
   .title {
+    margin-top: 0;
     h1 {
-      font-size: 48px;
+      font-size: 24px;
     }
   }
 }

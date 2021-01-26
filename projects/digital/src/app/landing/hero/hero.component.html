@@ -1,14 +1,14 @@
-<section class="tools">
-  <h1>3Ponds Digital</h1>
+<!-- <section class="tools">
+  <h1 class="logo">3Ponds Digital</h1>
     <button *ngIf="!(auth.user$ | async)" mat-button (click)="auth.googleSignin()" matTooltip="Sign in with your Google account">Sign In</button>
     <button *ngIf="(auth.user$ | async)" mat-button (click)="auth.signOut()" matTooltip="Sign in with your Google account">Sign Out</button>
-    <!-- <button *ngIf="auth.user$ | async as user" (click)="auth.signOut()">{{user.displayName}}</button> -->
-    <!-- <button *ngIf="auth.user$ | async" (click)="auth.signOut()">Sign Out</button> -->
 </section>
-<section class="hero">
-   
+-->
+<app-toolbar></app-toolbar>
+<section class="hero"> 
+  
     <section class="title">
-        <p>Digital Grounded By Need</p>
+        A Grounded Approach to the Digital Age
     </section>
     <section class="cards">
         <mat-card class="card">

@@ -1,14 +1,7 @@
 <ng-container *ngIf="auth.user$ | async as user">
-  <mat-toolbar color="primary">
-    <span class="logo">3 Ponds Digital</span>
-    <span class="spacer"></span>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <mat-icon>more_vert</mat-icon>
-    </button>
-    </mat-toolbar>
+  <app-toolbar></app-toolbar>
     <main>
         <h2>Welcome, {{user.displayName}}</h2>
-        <img [src]="user.photoURL">
         <button color="accent" mat-raised-button [routerLink]="['../portals']">Log Restoration Hours</button>
         <button mat-raised-button (click)="auth.signOut()">Log Out</button>
     </main>

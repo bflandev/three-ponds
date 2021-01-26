@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { UserRoutingModule } from './user-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { VendorsModule } from 'projects/vendors/src/public-api';
+import { CoreModule } from '../core/core.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { VendorsModule } from 'projects/vendors/src/public-api';
   imports: [
     CommonModule,
     UserRoutingModule,
-    VendorsModule
+    VendorsModule,
+    CoreModule
   ]
 })
 export class UserModule { }
