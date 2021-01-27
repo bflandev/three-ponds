@@ -6,6 +6,7 @@ import { RestorationComponent } from './restoration/restoration.component';
 import { VendorsModule } from 'projects/vendors/src/public-api';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SessionModule } from 'projects/restoration/src/lib/session/session.module';
+import { CoreModule } from '../core/core.module';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { SessionModule } from 'projects/restoration/src/lib/session/session.modu
   imports: [
     CommonModule,
     VendorsModule,
+    CoreModule,
     FormsModule,
     SessionModule,
     ReactiveFormsModule,

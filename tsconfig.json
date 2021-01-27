@@ -39,6 +39,10 @@
       "restoration": [
         "dist/restoration/restoration",
         "dist/restoration"
+      ],
+      "portals": [
+        "dist/portals/portals",
+        "dist/portals"
       ]
     }
   }

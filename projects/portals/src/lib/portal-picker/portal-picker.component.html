@@ -1,0 +1,11 @@
+<section>
+  <h3>Please Pick A Portal</h3>
+  <mat-selection-list class="selection-list" #portalList>
+    <mat-list-option color="primary" *ngFor="let portal of portals | async">
+      <mat-icon mat-list-icon>change_circle</mat-icon>
+      <div mat-line>{{ portal.name }}</div>
+      <div mat-line>{{ portal.description }}</div>
+    </mat-list-option>
+  </mat-selection-list>
+  <button mat-raised-button color="primary">Add Portal</button>
+</section>

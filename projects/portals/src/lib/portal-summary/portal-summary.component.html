@@ -1,0 +1,10 @@
+<h1>Your Portals</h1>
+<mat-nav-list>
+  <a
+    mat-list-item
+    (click)="navigateToPortal(portal)"
+    *ngFor="let portal of portals"
+  >
+    {{ portal.name }}
+  </a>
+</mat-nav-list>

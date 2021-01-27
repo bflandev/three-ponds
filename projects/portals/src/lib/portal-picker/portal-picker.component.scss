@@ -1,0 +1,22 @@
+@import "~@angular/material/theming";
+:host,
+section {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 4px;
+  button {
+    width: 50%;
+  }
+}
+
+.selection-list {
+  @include mat-elevation(2, #071e01, 1);
+  width: 50%;
+}
+
+@media (max-width: 600px) {
+  .selection-list {
+    width: 100%;
+  }
+}

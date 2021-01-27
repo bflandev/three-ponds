@@ -1,14 +1,7 @@
 <ng-container *ngIf="auth.user$ | async as user">
-    <mat-toolbar color="primary">
-      <span class="logo">3 Ponds Digital</span>
-      <span class="spacer"></span>
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-        <mat-icon>more_vert</mat-icon>
-      </button>
-      </mat-toolbar>
-      <main>
-        <lib-session></lib-session>
-      </main>
-      <footer></footer>
-  </ng-container>
-
+  <app-toolbar></app-toolbar>
+  <main>
+    <lib-session></lib-session>
+  </main>
+  <footer></footer>
+</ng-container>

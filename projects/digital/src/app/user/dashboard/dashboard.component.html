@@ -1,9 +1,18 @@
 <ng-container *ngIf="auth.user$ | async as user">
   <app-toolbar></app-toolbar>
-    <main>
-        <h2>Welcome, {{user.displayName}}</h2>
-        <button color="accent" mat-raised-button [routerLink]="['../portals']">Log Restoration Hours</button>
-        <button mat-raised-button (click)="auth.signOut()">Log Out</button>
-    </main>
-    <footer></footer>
+  <main>
+    <h2>Welcome, {{ user.displayName }}</h2>
+    <!-- <button color="accent" mat-raised-button [routerLink]="['../portals']">
+      Log Restoration Hours
+    </button>
+    <button mat-raised-button (click)="auth.signOut()">Log Out</button> -->
+    <section *ngIf="!userPortals$ | async">
+      <p>You have no active portals. Please request access to one.</p>
+      <lib-portal-picker *ngIf="user" [user]="user"></lib-portal-picker>
+    </section>
+    <section *ngIf="userPortals$ | async">
+      <lib-portal-summary [portals]="portals$ | async"></lib-portal-summary>
+    </section>
+  </main>
+  <footer></footer>
 </ng-container>

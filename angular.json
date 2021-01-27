@@ -430,6 +430,46 @@
           }
         }
       }
+    },
+    "portals": {
+      "projectType": "library",
+      "root": "projects/portals",
+      "sourceRoot": "projects/portals/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/portals/tsconfig.lib.json",
+            "project": "projects/portals/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/portals/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/portals/src/test.ts",
+            "tsConfig": "projects/portals/tsconfig.spec.json",
+            "karmaConfig": "projects/portals/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/portals/tsconfig.lib.json",
+              "projects/portals/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "digital"
