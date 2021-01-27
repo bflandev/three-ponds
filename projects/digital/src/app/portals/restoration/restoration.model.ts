@@ -8,5 +8,4 @@ export interface RestorationSession {
     projectId: string;
     restorationTypeId: string;
     start: Date;
-    
 }

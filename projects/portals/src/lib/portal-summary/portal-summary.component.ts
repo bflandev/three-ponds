@@ -15,7 +15,8 @@ export class PortalSummaryComponent implements OnInit {
   }
 
   navigateToPortal(portal: Portal) {
-    this.router.navigate([`/portals/${[portal.name]}`]);
+    const portalName = portal.name.toLowerCase();
+    this.router.navigate([`/portals/${portalName}`]);
   }
 
 }

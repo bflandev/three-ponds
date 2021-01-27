@@ -2,52 +2,64 @@
   <h1>Start A Session</h1>
   <mat-form-field appearance="fill">
     <mat-label>Project</mat-label>
-    <mat-select >
+    <mat-select>
       <mat-option>Clear</mat-option>
       <mat-option value="valid">Kitchen's Lane Restoration</mat-option>
     </mat-select>
-    <mat-error *ngIf="selected.hasError('required')">You must make a selection</mat-error>
-    <mat-error *ngIf="selected.hasError('pattern') && !selected.hasError('required')">
+    <mat-error *ngIf="selected.hasError('required')"
+      >You must make a selection</mat-error
+    >
+    <mat-error
+      *ngIf="selected.hasError('pattern') && !selected.hasError('required')"
+    >
       Your selection is invalid
     </mat-error>
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>Type of Work</mat-label>
-    <mat-select >
+    <mat-select>
       <mat-option>Clear</mat-option>
       <mat-option value="valid">Invasive Plant Removal</mat-option>
       <mat-option value="valid">Planting</mat-option>
     </mat-select>
-    <mat-error *ngIf="selected.hasError('required')">You must make a selection</mat-error>
-    <mat-error *ngIf="selected.hasError('pattern') && !selected.hasError('required')">
+    <mat-error *ngIf="selected.hasError('required')"
+      >You must make a selection</mat-error
+    >
+    <mat-error
+      *ngIf="selected.hasError('pattern') && !selected.hasError('required')"
+    >
       Your selection is invalid
     </mat-error>
   </mat-form-field>
   <h2>Geolocation</h2>
-  <mat-spinner style="margin:0 auto; padding: 8px"  [diameter]="100" *ngIf="!lat || !lng"></mat-spinner>
-  <google-map *ngIf="lat && lng"
-height="500px"
-  width="100%"
-  [zoom]="zoom"
-  [center]="center"
-  [options]="options"
->
-<map-marker
-    [position]="marker.position"
-    [label]="marker.label"
-    [title]="marker.title"
-  
+  <mat-spinner
+    style="margin: 0 auto; padding: 8px"
+    [diameter]="100"
+    *ngIf="!lat || !lng"
+  ></mat-spinner>
+  <google-map
+    *ngIf="lat && lng"
+    height="500px"
+    width="100%"
+    [zoom]="zoom"
+    [center]="center"
+    [options]="options"
   >
-  </map-marker>
-</google-map>
-<section>
-  <button mat-raised-button (click)="zoomIn()">Zoom in</button>
-<button mat-raised-button (click)="zoomOut()">Zoom out</button>
-</section>
-<h2>Before Image</h2>
-<input class="ng-hide" id="input-file-id" multiple type="file" />
-<label for="input-file-id" class="md-button md-raised md-primary">Choose Files</label>
+    <map-marker
+      [position]="marker.position"
+      [label]="marker.label"
+      [title]="marker.title"
+    >
+    </map-marker>
+  </google-map>
+  <section>
+    <button mat-raised-button (click)="zoomIn()">Zoom in</button>
+    <button mat-raised-button (click)="zoomOut()">Zoom out</button>
+  </section>
+  <h2>Before Image</h2>
+  <input class="ng-hide" id="input-file-id" multiple type="file" />
+  <label for="input-file-id" class="md-button md-raised md-primary"
+    >Choose Files</label
+  >
   <button mat-raised-button color="accent">Start Session</button>
-
 </form>
-

@@ -1,0 +1,9 @@
+<h3>Your Sessions</h3>
+<mat-list>
+  <mat-list-item *ngFor="let session of sessions$ | async">{{
+    session.projectId
+  }}</mat-list-item>
+</mat-list>
+<button mat-raised-button color="primary" routerLink="session">
+  Start New Session
+</button>
