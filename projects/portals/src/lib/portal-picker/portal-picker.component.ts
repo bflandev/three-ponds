@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { MatListOption } from '@angular/material/list';
 import { User } from 'projects/auth/src/lib/models';
 import { ObservableService } from 'projects/tools/src/lib/services/observable.service';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -17,6 +18,10 @@ export class PortalPickerComponent implements OnInit {
 
   ngOnInit(): void {
     this.portals = this.observableService.getObservable<Portal>(this.store.collection('portals'));
+  }
+
+  addPortal(portal: MatListOption) {
+    this.store.collection('user-portals').add({userId: this.user.uid, portalId: portal[0].value.id})
   }
 
 }

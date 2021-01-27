@@ -4,6 +4,7 @@ import { SessionComponent } from './session.component';
 import { VendorsModule } from 'projects/vendors/src/public-api';
 import { GoogleMap, GoogleMapsModule } from '@angular/google-maps';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CoreModule } from 'projects/digital/src/app/core/core.module';
 
 
 
@@ -11,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [SessionComponent],
   imports: [
     CommonModule,
+    CoreModule,
     VendorsModule,
     FormsModule,
     ReactiveFormsModule,

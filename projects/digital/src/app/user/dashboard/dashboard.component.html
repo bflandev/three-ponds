@@ -6,11 +6,11 @@
       Log Restoration Hours
     </button>
     <button mat-raised-button (click)="auth.signOut()">Log Out</button> -->
-    <section *ngIf="!userPortals$ | async">
+    <section *ngIf="(userPortals$ | async).length === 0">
       <p>You have no active portals. Please request access to one.</p>
       <lib-portal-picker *ngIf="user" [user]="user"></lib-portal-picker>
     </section>
-    <section *ngIf="userPortals$ | async">
+    <section *ngIf="(userPortals$ | async).length > 0">
       <lib-portal-summary [portals]="portals$ | async"></lib-portal-summary>
     </section>
   </main>
