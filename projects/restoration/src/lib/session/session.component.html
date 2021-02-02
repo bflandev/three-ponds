@@ -1,36 +1,27 @@
 <app-toolbar></app-toolbar>
-<form>
+<form
+  [formGroup]="form"
+  (ngSubmit)="startSession(vm.user)"
+  *ngIf="vm$ | async as vm"
+>
   <h1>Start A Session</h1>
   <mat-form-field appearance="fill">
     <mat-label>Project</mat-label>
-    <mat-select>
+    <mat-select formControlName="project" required>
       <mat-option>Clear</mat-option>
-      <mat-option value="valid">Kitchen's Lane Restoration</mat-option>
+      <mat-option *ngFor="let project of vm.projects" [value]="project">{{
+        project.name
+      }}</mat-option>
     </mat-select>
-    <mat-error *ngIf="selected.hasError('required')"
-      >You must make a selection</mat-error
-    >
-    <mat-error
-      *ngIf="selected.hasError('pattern') && !selected.hasError('required')"
-    >
-      Your selection is invalid
-    </mat-error>
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>Type of Work</mat-label>
-    <mat-select>
+    <mat-select formControlName="type" required>
       <mat-option>Clear</mat-option>
-      <mat-option value="valid">Invasive Plant Removal</mat-option>
-      <mat-option value="valid">Planting</mat-option>
+      <mat-option *ngFor="let type of vm.types" [value]="type">{{
+        type.name
+      }}</mat-option>
     </mat-select>
-    <mat-error *ngIf="selected.hasError('required')"
-      >You must make a selection</mat-error
-    >
-    <mat-error
-      *ngIf="selected.hasError('pattern') && !selected.hasError('required')"
-    >
-      Your selection is invalid
-    </mat-error>
   </mat-form-field>
   <h2>Geolocation</h2>
   <mat-spinner
@@ -58,9 +49,21 @@
     <button mat-raised-button (click)="zoomOut()">Zoom out</button>
   </section>
   <h2>Before Image</h2>
-  <input class="ng-hide" id="input-file-id" multiple type="file" />
-  <label for="input-file-id" class="md-button md-raised md-primary"
-    >Choose Files</label
+  <input
+    formControlName="beforeImage"
+    required
+    class="ng-hide"
+    id="input-file-id"
+    multiple
+    type="file"
+  />
+
+  <button
+    [disabled]="!this.form.valid"
+    mat-raised-button
+    color="accent"
+    type="submit"
   >
-  <button mat-raised-button color="accent">Start Session</button>
+    Start Session
+  </button>
 </form>

@@ -1,8 +1,14 @@
 @import "~@angular/material/theming";
 section {
   padding: 32px;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 8px;
 }
 
 .item {
   @include mat-elevation(2, #071e01, 1);
+}
+h1 {
+  padding: 8px;
 }

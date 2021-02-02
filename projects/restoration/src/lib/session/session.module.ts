@@ -6,18 +6,16 @@ import { GoogleMap, GoogleMapsModule } from '@angular/google-maps';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CoreModule } from 'projects/digital/src/app/core/core.module';
 
-
-
 @NgModule({
   declarations: [SessionComponent],
   imports: [
     CommonModule,
-    CoreModule,
-    VendorsModule,
     FormsModule,
     ReactiveFormsModule,
-    GoogleMapsModule
+    VendorsModule,
+    CoreModule,
+    GoogleMapsModule,
   ],
-  exports: [SessionComponent]
+  exports: [SessionComponent],
 })
-export class SessionModule { }
+export class SessionModule {}

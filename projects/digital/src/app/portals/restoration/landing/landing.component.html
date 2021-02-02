@@ -1,13 +1,26 @@
-<app-toolbar></app-toolbar>
-<section>
+<ng-container *ngIf="vm$ | async as vm">
+  <app-toolbar></app-toolbar>
   <h1>Restoration</h1>
-  <h3>Your Sessions</h3>
-  <mat-list>
-    <mat-list-item class="item" *ngFor="let session of sessions$ | async">{{
-      session.projectId
-    }}</mat-list-item>
-  </mat-list>
-  <button mat-raised-button color="primary" routerLink="session">
-    Start New Session
-  </button>
-</section>
+  <section>
+    <h3>
+      Your Sessions
+      <span
+        matBadgeOverlap="false"
+        matBadge="{{ vm.sessions.length }}"
+        matBadgeColor="primary"
+      ></span>
+    </h3>
+    <mat-list>
+      <mat-list-item class="item" *ngFor="let session of vm.sessions">
+        {{ session.start.toDate() | date }}
+      </mat-list-item>
+    </mat-list>
+    <button
+      mat-raised-button
+      color="primary"
+      [routerLink]="vm.openSession ? ['session', vm.openSession.id] : 'session'"
+    >
+      {{ vm.openSession ? "Continue" : "Start New Session" }}
+    </button>
+  </section>
+</ng-container>

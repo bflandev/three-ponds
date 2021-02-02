@@ -1,27 +1,38 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import {
+  AngularFirestore,
+  AngularFirestoreCollection,
+} from '@angular/fire/firestore';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  FormGroupDirective,
+  NgForm,
+  Validators,
+} from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { Router } from '@angular/router';
+import { User } from 'projects/auth/src/lib/models';
 import { AuthService } from 'projects/auth/src/public-api';
-import { BehaviorSubject } from 'rxjs';
+import { ObservableService } from 'projects/tools/src/lib/services/observable.service';
+import { combineLatest, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { RestorationProject } from './models/restoration-project.model';
+import { RestorationType } from './models/restoration-type.model';
 import { RestorationSession } from './models/session.model';
 
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
 @Component({
   selector: 'lib-session',
   templateUrl: './session.component.html',
-  styleUrls: ['./session.component.scss']
+  styleUrls: ['./session.component.scss'],
 })
 export class SessionComponent implements OnInit {
+  form: FormGroup;
   lat: number;
   lng: number;
-  zoom = 20
-  center: google.maps.LatLngLiteral
+  zoom = 100;
+  center: google.maps.LatLngLiteral;
   options: google.maps.MapOptions = {
     mapTypeId: 'roadmap',
     zoomControl: false,
@@ -29,35 +40,58 @@ export class SessionComponent implements OnInit {
     disableDoubleClickZoom: true,
     maxZoom: 25,
     minZoom: 8,
-  }
+  };
 
-  selected = new FormControl('valid', [
-    Validators.required,
-    Validators.pattern('valid'),
-  ]);
+  marker: any;
+  vm$: Observable<any>;
+  projects$: Observable<RestorationProject[]>;
+  types$: Observable<RestorationType[]>;
 
-  selectFormControl = new FormControl('valid', [
-    Validators.required,
-    Validators.pattern('valid'),
-  ]);
-
-  nativeSelectFormControl = new FormControl('valid', [
-    Validators.required,
-    Validators.pattern('valid'),
-  ]);
-
-  matcher = new MyErrorStateMatcher();
-
- marker: any;
-
-  constructor(public auth: AuthService, private store: AngularFirestore) { }
+  constructor(
+    public auth: AuthService,
+    private observableService: ObservableService,
+    private store: AngularFirestore,
+    private fb: FormBuilder,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    navigator.geolocation.getCurrentPosition( position => {
+    this.setupVm();
+    this.setupMap();
+    this.setupForm();
+  }
+  setupVm() {
+    this.projects$ = this.observableService.getObservable<RestorationProject[]>(
+      this.store.collection('restoration-projects')
+    );
+    this.types$ = this.observableService.getObservable<RestorationType[]>(
+      this.store.collection('restoration-type')
+    );
+    this.vm$ = combineLatest([
+      this.projects$,
+      this.types$,
+      this.auth.user$,
+    ]).pipe(
+      map(
+        ([projects, types, user]: [
+          RestorationProject[],
+          RestorationType[],
+          User
+        ]) => ({
+          projects,
+          types,
+          user,
+        })
+      )
+    );
+  }
+
+  setupMap() {
+    navigator.geolocation.getCurrentPosition((position) => {
       this.center = {
         lat: position.coords.latitude,
         lng: position.coords.longitude,
-      }
+      };
       this.lat = position.coords.latitude;
       this.lng = position.coords.longitude;
       this.marker = {
@@ -71,16 +105,53 @@ export class SessionComponent implements OnInit {
         },
         title: 'Restoration Area',
         options: { animation: google.maps.Animation.BOUNCE },
-      }
-    })
+      };
+    });
+  }
+
+  setupForm() {
+    this.form = this.fb.group({
+      project: ['', Validators.required],
+      type: ['', Validators.required],
+      beforeImage: ['', Validators.required],
+    });
   }
 
   zoomIn() {
-    if (this.zoom < this.options.maxZoom) this.zoom++
+    if (this.zoom < this.options.maxZoom) this.zoom++;
   }
 
   zoomOut() {
-    if (this.zoom > this.options.minZoom) this.zoom--
+    if (this.zoom > this.options.minZoom) this.zoom--;
   }
 
+  startSession(user: User) {
+    const project = this.form.get('project').value as RestorationProject;
+    const type = this.form.get('type').value as RestorationType;
+    const session: RestorationSession = {
+      // id?: string;
+      afterPictureUrl: '',
+      beforePictureUrl: '',
+      // end?:
+      latitude: this.lat,
+      longitude: this.lng,
+      projectId: project.id,
+      projectDesc: project.name,
+      restorationTypeId: type.id,
+      restorationTypeDesc: type.name,
+      start: new Date(),
+      uid: user.uid,
+    };
+    this.store
+      .collection('restoration-sessions')
+      .add(session)
+      .then((docRef) => {
+        this.router.navigate([
+          'portals',
+          'restoration',
+          'session',
+          `${docRef.id}`,
+        ]);
+      });
+  }
 }

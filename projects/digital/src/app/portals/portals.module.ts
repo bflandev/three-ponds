@@ -8,7 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SessionModule } from 'projects/restoration/src/lib/session/session.module';
 import { CoreModule } from '../core/core.module';
 import { LandingComponent } from './restoration/landing/landing.component';
-
+import { LiveSessionModule } from 'projects/restoration/src/lib/live-session/live-session.module';
 
 @NgModule({
   declarations: [RestorationComponent, LandingComponent],
@@ -18,8 +18,9 @@ import { LandingComponent } from './restoration/landing/landing.component';
     CoreModule,
     FormsModule,
     SessionModule,
+    LiveSessionModule,
     ReactiveFormsModule,
     PortalsRoutingModule,
-  ]
+  ],
 })
-export class PortalsModule { }
+export class PortalsModule {}
