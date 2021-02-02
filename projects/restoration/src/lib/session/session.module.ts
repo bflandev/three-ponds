@@ -5,6 +5,7 @@ import { VendorsModule } from 'projects/vendors/src/public-api';
 import { GoogleMap, GoogleMapsModule } from '@angular/google-maps';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CoreModule } from 'projects/digital/src/app/core/core.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [SessionComponent],
@@ -15,6 +16,7 @@ import { CoreModule } from 'projects/digital/src/app/core/core.module';
     VendorsModule,
     CoreModule,
     GoogleMapsModule,
+    RouterModule,
   ],
   exports: [SessionComponent],
 })
