@@ -1,17 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  AngularFirestore,
-  AngularFirestoreCollection,
-} from '@angular/fire/firestore';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  FormGroupDirective,
-  NgForm,
-  Validators,
-} from '@angular/forms';
-import { ErrorStateMatcher } from '@angular/material/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'projects/auth/src/lib/models';
 import { AuthService } from 'projects/auth/src/public-api';
@@ -21,6 +10,8 @@ import { map } from 'rxjs/operators';
 import { RestorationProject } from './models/restoration-project.model';
 import { RestorationType } from './models/restoration-type.model';
 import { RestorationSession } from './models/session.model';
+import firebase from 'firebase/app';
+import Timestamp = firebase.firestore.Timestamp;
 
 @Component({
   selector: 'lib-session',
@@ -129,9 +120,9 @@ export class SessionComponent implements OnInit {
     const project = this.form.get('project').value as RestorationProject;
     const type = this.form.get('type').value as RestorationType;
     const session: RestorationSession = {
-      // id?: string;
+      //id: this.store.createId(),
       afterPictureUrl: '',
-      beforePictureUrl: '',
+      beforePictureUrl: this.form.get('beforeImage').value,
       // end?:
       latitude: this.lat,
       longitude: this.lng,
@@ -139,7 +130,7 @@ export class SessionComponent implements OnInit {
       projectDesc: project.name,
       restorationTypeId: type.id,
       restorationTypeDesc: type.name,
-      start: new Date(),
+      start: Timestamp.now(),
       uid: user.uid,
     };
     this.store

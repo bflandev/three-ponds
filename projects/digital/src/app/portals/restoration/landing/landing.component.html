@@ -12,7 +12,8 @@
     </h3>
     <mat-list>
       <mat-list-item class="item" *ngFor="let session of vm.sessions">
-        {{ session.start.toDate() | date }}
+        {{ session.start.toDate() | date }} - {{ session.projectDesc }} -
+        {{ session.restorationTypeDesc }}
       </mat-list-item>
     </mat-list>
     <button

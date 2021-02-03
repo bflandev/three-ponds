@@ -4,13 +4,13 @@ export interface RestorationSession {
   id?: string;
   afterPictureUrl?: string;
   beforePictureUrl: string;
-  end?: Date;
+  end?: Timestamp;
   latitude: number;
   longitude: number;
   projectId: string;
   projectDesc: string;
   restorationTypeId: string;
   restorationTypeDesc: string;
-  start: Date;
+  start: Timestamp;
   uid: string;
 }

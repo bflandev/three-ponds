@@ -1,11 +1,13 @@
+import firebase from 'firebase/app';
+import Timestamp = firebase.firestore.Timestamp;
 export interface RestorationSession {
-    id: string;
-    afterPictureUrl: string;
-    beforePictureUrl: string;
-    end: Date;
-    latitude: string;
-    longitude: string;
-    projectId: string;
-    restorationTypeId: string;
-    start: Date;
+  id: string;
+  afterPictureUrl: string;
+  beforePictureUrl: string;
+  end: Timestamp;
+  latitude: string;
+  longitude: string;
+  projectId: string;
+  restorationTypeId: string;
+  start: Timestamp;
 }

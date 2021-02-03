@@ -1,1 +1,39 @@
-<app-toolbar></app-toolbar> {{ this.session$ | async | json }}
+<app-toolbar></app-toolbar>
+<main *ngIf="this.session$ | async as session">
+  <h1>{{ session.projectDesc }} - {{ session.restorationTypeDesc }}</h1>
+  <h2>{{ session.start.toDate() | date }}</h2>
+  <google-map
+    height="500px"
+    width="100%"
+    [zoom]="zoom"
+    [center]="center"
+    [options]="options"
+  >
+    <map-marker
+      [position]="{ lat: session.latitude, lng: session.longitude }"
+      [label]="'Restoration Area'"
+      [title]="'Restoration Area'"
+    >
+    </map-marker>
+  </google-map>
+  <form [formGroup]="form" (ngSubmit)="finishSession()">
+    <h2>After Image</h2>
+    <input
+      formControlName="afterImage"
+      required
+      class="ng-hide"
+      id="input-file-id"
+      multiple
+      type="file"
+    />
+
+    <button
+      [disabled]="!this.form.valid"
+      mat-raised-button
+      color="accent"
+      type="submit"
+    >
+      Finish Session
+    </button>
+  </form>
+</main>
