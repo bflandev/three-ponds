@@ -1,5 +1,4 @@
-<app-toolbar></app-toolbar>
-<main *ngIf="this.session$ | async as session">
+<main *ngIf="session">
   <h1>{{ session.projectDesc }} - {{ session.restorationTypeDesc }}</h1>
   <h2>{{ session.start.toDate() | date }}</h2>
   <google-map

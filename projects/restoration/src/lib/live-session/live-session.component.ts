@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {
   AngularFirestore,
   AngularFirestoreDocument,
@@ -13,9 +13,9 @@ import { User } from 'projects/auth/src/lib/models';
 import { AuthService } from 'projects/auth/src/public-api';
 import { ObservableService } from 'projects/tools/src/lib/services/observable.service';
 import { Observable } from 'rxjs';
-import { RestorationSession } from '../session/models/session.model';
 import firebase from 'firebase/app';
 import Timestamp = firebase.firestore.Timestamp;
+import { RestorationSession } from '../models/session.model';
 
 @Component({
   selector: 'lib-live-session',
@@ -23,6 +23,7 @@ import Timestamp = firebase.firestore.Timestamp;
   styleUrls: ['./live-session.component.scss'],
 })
 export class LiveSessionComponent implements OnInit {
+  @Input() session: RestorationSession;
   form: FormGroup;
   session$: Observable<RestorationSession>;
   zoom = 100;
@@ -46,10 +47,6 @@ export class LiveSessionComponent implements OnInit {
     private router: Router
   ) {}
   ngOnInit(): void {
-    const sessionId = this.route.snapshot.params['sessionId'];
-    this.session$ = this.observableService.getObservableDocument<RestorationSession>(
-      this.store.collection('restoration-sessions').doc(sessionId)
-    );
     this.setupMap();
     this.setupForm();
   }
@@ -84,6 +81,6 @@ export class LiveSessionComponent implements OnInit {
       afterPictureUrl: this.form.get('afterImage').value,
       end: Timestamp.now(),
     });
-    this.router.navigate(['/portals', 'restoration']);
+    //this.router.navigate(['/portals', 'restoration']);
   }
 }

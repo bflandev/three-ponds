@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AuthService } from 'projects/auth/src/public-api';
-import { RestorationSession } from 'projects/restoration/src/lib/session/models/session.model';
 import { ObservableService } from 'projects/tools/src/lib/services/observable.service';
 import { combineLatest, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { RestorationSession } from '../restoration.model';
 
 @Component({
   selector: 'app-landing',
@@ -14,6 +14,8 @@ import { map } from 'rxjs/operators';
 export class LandingComponent implements OnInit {
   sessions$: Observable<RestorationSession[]>;
   vm$: Observable<any>;
+  selectedSession: RestorationSession;
+  newSession: boolean = false;
   constructor(
     public auth: AuthService,
     private store: AngularFirestore,
@@ -30,5 +32,15 @@ export class LandingComponent implements OnInit {
         openSession: sessions.find((s) => s.end == null),
       }))
     );
+  }
+
+  setSelectedSession(session: RestorationSession) {
+    this.selectedSession = session;
+  }
+  clearSelectedSession() {
+    this.selectedSession = null;
+  }
+  startNewSession() {
+    this.clearSelectedSession;
   }
 }

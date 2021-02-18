@@ -2,23 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from 'projects/auth/src/lib/models';
 import { AuthService } from 'projects/auth/src/public-api';
 import { ObservableService } from 'projects/tools/src/lib/services/observable.service';
 import { combineLatest, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { RestorationProject } from './models/restoration-project.model';
-import { RestorationType } from './models/restoration-type.model';
-import { RestorationSession } from './models/session.model';
+import { RestorationProject } from '../models/restoration-project.model';
+import { RestorationType } from '../models/restoration-type.model';
 import firebase from 'firebase/app';
 import Timestamp = firebase.firestore.Timestamp;
+import { User } from 'projects/auth/src/lib/models';
+import { map } from 'rxjs/operators';
+import { RestorationSession } from '../models/session.model';
 
 @Component({
-  selector: 'lib-session',
-  templateUrl: './session.component.html',
-  styleUrls: ['./session.component.scss'],
+  selector: 'lib-start-session',
+  templateUrl: './start-session.component.html',
+  styleUrls: ['./start-session.component.scss'],
 })
-export class SessionComponent implements OnInit {
+export class StartSessionComponent implements OnInit {
   form: FormGroup;
   lat: number;
   lng: number;
@@ -37,7 +37,6 @@ export class SessionComponent implements OnInit {
   vm$: Observable<any>;
   projects$: Observable<RestorationProject[]>;
   types$: Observable<RestorationType[]>;
-
   constructor(
     public auth: AuthService,
     private observableService: ObservableService,
@@ -46,11 +45,7 @@ export class SessionComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit(): void {
-    this.setupVm();
-    this.setupMap();
-    this.setupForm();
-  }
+  ngOnInit(): void {}
   setupVm() {
     this.projects$ = this.observableService.getObservable<RestorationProject[]>(
       this.store.collection('restoration-projects')

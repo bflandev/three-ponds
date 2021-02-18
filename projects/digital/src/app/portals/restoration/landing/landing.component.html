@@ -1,7 +1,7 @@
 <ng-container *ngIf="vm$ | async as vm">
   <app-toolbar></app-toolbar>
   <h1>Restoration</h1>
-  <section>
+  <section *ngIf="!selectedSession">
     <h3>
       Your Sessions
       <span
@@ -12,16 +12,29 @@
     </h3>
     <mat-list>
       <mat-list-item class="item" *ngFor="let session of vm.sessions">
-        {{ session.start.toDate() | date }} - {{ session.projectDesc }} -
-        {{ session.restorationTypeDesc }}
+        <span>
+          {{ session.start.toDate() | date }} - {{ session.projectDesc }} -
+          {{ session.restorationTypeDesc }}
+        </span>
+        <span class="spacer"></span>
+        <button
+          *ngIf="
+            (vm.openSession && vm.openSession.id !== session.id) ||
+            !vm.openSession
+          "
+          mat-raised-button
+          color="primary"
+          (click)="setSelectedSession(session)"
+        >
+          View Details
+        </button>
       </mat-list-item>
     </mat-list>
-    <button
-      mat-raised-button
-      color="primary"
-      [routerLink]="vm.openSession ? ['session', vm.openSession.id] : 'session'"
-    >
+    <button mat-raised-button color="primary" (click)="startNewSession()">
       {{ vm.openSession ? "Continue" : "Start New Session" }}
     </button>
   </section>
+  <lib-start-session *ngIf="newSession"></lib-start-session>
+  <lib-live-session *ngIf="vm.openSession"></lib-live-session>
+  <lib-session-details *ngIf="selectedSession"></lib-session-details>
 </ng-container>
