@@ -5,7 +5,10 @@
     <section
       *ngIf="(userPortals$ | async) && (userPortals$ | async).length === 0"
     >
-      <p>You have no active portals. Please request access to one.</p>
+      <p>
+        You have no active portals. Please request access to one (free portals
+        will automatically be added).
+      </p>
       <lib-portal-picker *ngIf="user" [user]="user"></lib-portal-picker>
     </section>
     <section *ngIf="(userPortals$ | async).length > 0">

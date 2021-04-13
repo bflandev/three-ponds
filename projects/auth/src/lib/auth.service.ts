@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { User } from './models';
 import firebase from 'firebase/app';
@@ -15,6 +15,8 @@ import {
 })
 export class AuthService {
   user$: Observable<User>;
+  errorSubject = new BehaviorSubject<string>(null);
+  errors$ = this.errorSubject.asObservable();
   constructor(
     private afAuth: AngularFireAuth,
     private afs: AngularFirestore,
@@ -39,16 +41,24 @@ export class AuthService {
   }
 
   async emailSignIn(email: string, password: string) {
-    return await this.afAuth.signInWithEmailAndPassword(email, password);
+    try {
+      return await this.afAuth.signInWithEmailAndPassword(email, password);
+    } catch (error) {
+      this.errorSubject.next('Login not Valid');
+    }
   }
 
   async signUp(email: string, password: string, userName: string) {
-    return await this.afAuth
-      .createUserWithEmailAndPassword(email, password)
-      .then((credential) => {
-        let user = credential.user;
-        this.updateUserData({ ...user, displayName: userName });
-      });
+    try {
+      return await this.afAuth
+        .createUserWithEmailAndPassword(email, password)
+        .then((credential) => {
+          let user = credential.user;
+          this.updateUserData({ ...user, displayName: userName });
+        });
+    } catch (error) {
+      this.errorSubject.next('No Good Signup');
+    }
   }
 
   async signOut() {
