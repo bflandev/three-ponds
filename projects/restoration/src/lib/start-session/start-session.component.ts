@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -19,6 +19,7 @@ import { RestorationSession } from '../models/session.model';
   styleUrls: ['./start-session.component.scss'],
 })
 export class StartSessionComponent implements OnInit {
+  @Output() switchPortal = new EventEmitter<string>();
   form: FormGroup;
   lat: number;
   lng: number;
@@ -45,7 +46,11 @@ export class StartSessionComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.setupForm();
+    this.setupMap();
+    this.setupVm();
+  }
   setupVm() {
     this.projects$ = this.observableService.getObservable<RestorationProject[]>(
       this.store.collection('restoration-projects')
@@ -132,12 +137,7 @@ export class StartSessionComponent implements OnInit {
       .collection('restoration-sessions')
       .add(session)
       .then((docRef) => {
-        this.router.navigate([
-          'portals',
-          'restoration',
-          'session',
-          `${docRef.id}`,
-        ]);
+        this.switchPortal.emit('details');
       });
   }
 }

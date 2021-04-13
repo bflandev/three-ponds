@@ -1,10 +1,16 @@
 {
-	"folders": [
-		{
-			"path": "../../../.."
-		},
-		{
-			"path": "../../../../../bflandev"
-		}
-	]
+  "folders": [
+    {
+      "path": "../../../.."
+    },
+    {
+      "path": "../../../../../bflandev"
+    },
+    {
+      "path": "../../../../../obs-templates"
+    }
+  ],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "obs-templates"
+  }
 }

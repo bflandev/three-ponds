@@ -2,10 +2,6 @@
   <app-toolbar></app-toolbar>
   <main>
     <h2>Welcome, {{ user.displayName }}</h2>
-    <!-- <button color="accent" mat-raised-button [routerLink]="['../portals']">
-      Log Restoration Hours
-    </button>
-    <button mat-raised-button (click)="auth.signOut()">Log Out</button> -->
     <section *ngIf="(userPortals$ | async).length === 0">
       <p>You have no active portals. Please request access to one.</p>
       <lib-portal-picker *ngIf="user" [user]="user"></lib-portal-picker>

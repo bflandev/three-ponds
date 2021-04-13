@@ -1,40 +1,74 @@
 <ng-container *ngIf="vm$ | async as vm">
-  <app-toolbar></app-toolbar>
-  <h1>Restoration</h1>
-  <section *ngIf="!selectedSession">
-    <h3>
-      Your Sessions
-      <span
-        matBadgeOverlap="false"
-        matBadge="{{ vm.sessions.length }}"
-        matBadgeColor="primary"
-      ></span>
-    </h3>
-    <mat-list>
-      <mat-list-item class="item" *ngFor="let session of vm.sessions">
-        <span>
-          {{ session.start.toDate() | date }} - {{ session.projectDesc }} -
-          {{ session.restorationTypeDesc }}
-        </span>
-        <span class="spacer"></span>
-        <button
-          *ngIf="
-            (vm.openSession && vm.openSession.id !== session.id) ||
-            !vm.openSession
-          "
-          mat-raised-button
-          color="primary"
-          (click)="setSelectedSession(session)"
-        >
-          View Details
-        </button>
-      </mat-list-item>
-    </mat-list>
-    <button mat-raised-button color="primary" (click)="startNewSession()">
-      {{ vm.openSession ? "Continue" : "Start New Session" }}
+  <header>
+    <app-toolbar></app-toolbar>
+  </header>
+  <main>
+    <h1>Restoration</h1>
+    <mat-accordion *ngIf="vm.showHistory">
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header class="expansion-header">
+          <mat-panel-title>
+            <b>Your Sessions</b>
+          </mat-panel-title>
+          <mat-panel-description>
+            A history of your restoration sessions
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-list>
+          <mat-list-item class="item" *ngFor="let session of vm.sessions">
+            <span>
+              {{ session.start.toDate() | date }} - {{ session.projectDesc }} -
+              {{ session.restorationTypeDesc }}
+            </span>
+            <span class="spacer"></span>
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="selectSession(session)"
+            >
+              View Details
+            </button>
+          </mat-list-item>
+        </mat-list>
+      </mat-expansion-panel>
+    </mat-accordion>
+    <div>
+      <ng-template [cdkPortalOutlet]="vm.selectedPortal"></ng-template>
+    </div>
+
+    <ng-template #startSession>
+      <lib-start-session
+        (switchPortal)="switchPortal($event)"
+      ></lib-start-session>
+    </ng-template>
+    <ng-template #liveSession>
+      <lib-live-session
+        (switchPortal)="switchPortal($event)"
+        [session]="vm.openSession"
+      ></lib-live-session>
+    </ng-template>
+    <ng-template #sessionDetails>
+      <lib-live-session
+        (switchPortal)="switchPortal($event)"
+        [session]="selectedSession"
+      ></lib-live-session>
+    </ng-template>
+
+    <button
+      mat-stroked-button
+      *ngIf="!vm.openSession && vm.selectedPortal !== startSessionPortal"
+      (click)="portalService.selectPortal(startSessionPortal)"
+    >
+      Start New Session
     </button>
-  </section>
-  <lib-start-session *ngIf="newSession"></lib-start-session>
-  <lib-live-session *ngIf="vm.openSession"></lib-live-session>
-  <lib-session-details *ngIf="selectedSession"></lib-session-details>
+    <button
+      *ngIf="vm.openSession && vm.selectedPortal !== liveSessionPortal"
+      (click)="
+        portalService.selectPortal(liveSessionPortal);
+        sessionService.selectSession(vm.openSession)
+      "
+    >
+      Continue Session
+    </button>
+  </main>
 </ng-container>

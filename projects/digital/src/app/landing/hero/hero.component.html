@@ -1,5 +1,38 @@
-<app-toolbar></app-toolbar>
+<header>
+  <h1>3Ponds Digital</h1>
+  <span class="spacer"></span>
+  <button color="accent" mat-raised-button [routerLink]="['/user/login']">
+    Log In
+  </button>
+</header>
 <main>
-  <h1>A Grounded Approach to the Digital Age</h1>
+  <section class="main-hero">
+    <article>
+      <span><mat-icon class="icon">widgets</mat-icon></span>
+      <h2>Application Development</h2>
+      <p>Full Enterprise Development and Subscription Portals.</p>
+      <button matTooltip="Coming Soon" color="primary" mat-stroked-button>
+        Learn More
+      </button>
+    </article>
+    <article>
+      <span><mat-icon class="icon">music_video</mat-icon></span>
+      <h2>Mulitmedia Production</h2>
+      <p>Professional audio, video, live stream production and setup.</p>
+      <button matTooltip="Coming Soon" color="primary" mat-stroked-button>
+        Learn More
+      </button>
+    </article>
+    <article>
+      <span><mat-icon class="icon"> business</mat-icon></span>
+      <h2>Community Endeavors</h2>
+      <p>Our plans to help local organizations make the world better.</p>
+      <button matTooltip="Coming Soon" color="primary" mat-stroked-button>
+        Learn More
+      </button>
+    </article>
+  </section>
+  <section class="accent-hero"></section>
+  <section class="action"></section>
 </main>
 <footer></footer>
