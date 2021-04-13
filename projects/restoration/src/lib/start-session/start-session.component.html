@@ -13,7 +13,7 @@
       }}</mat-option>
     </mat-select>
   </mat-form-field>
-  <mat-form-field appearance="fill">
+  <!-- <mat-form-field appearance="fill">
     <mat-label>Type of Work</mat-label>
     <mat-select formControlName="type" required>
       <mat-option>Clear</mat-option>
@@ -21,7 +21,7 @@
         type.name
       }}</mat-option>
     </mat-select>
-  </mat-form-field>
+  </mat-form-field> -->
   <h2>Geolocation</h2>
   <mat-spinner
     style="margin: 0 auto; padding: 8px"
@@ -47,7 +47,7 @@
     <button mat-raised-button (click)="zoomIn()">Zoom in</button>
     <button mat-raised-button (click)="zoomOut()">Zoom out</button>
   </section>
-  <h2>Before Image</h2>
+  <!-- <h2>Before Image</h2>
   <input
     formControlName="beforeImage"
     required
@@ -55,7 +55,7 @@
     id="input-file-id"
     multiple
     type="file"
-  />
+  /> -->
 
   <button
     [disabled]="!this.form.valid"

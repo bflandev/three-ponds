@@ -24,11 +24,13 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     const userPortalsSub = this.auth.user$.subscribe((u) => {
-      this.userPortals$ = this.userPortals$ = this.observableService.getObservable<UserPortal>(
-        this.store.collection('user-portals', (ref) =>
-          ref.where('userId', '==', u.uid)
-        )
-      );
+      if (u) {
+        this.userPortals$ = this.observableService.getObservable<UserPortal>(
+          this.store.collection('user-portals', (ref) =>
+            ref.where('userId', '==', u.uid)
+          )
+        );
+      }
     });
     this.subscriptions.push(userPortalsSub);
     this.portals$ = this.observableService.getObservable<Portal>(

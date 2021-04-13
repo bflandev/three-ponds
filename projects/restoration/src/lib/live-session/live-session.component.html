@@ -1,5 +1,5 @@
 <main *ngIf="session">
-  <h1>{{ session.projectDesc }} - {{ session.restorationTypeDesc }}</h1>
+  <h1>{{ session.projectDesc }}</h1>
   <h2>{{ session.start.toDate() | date }}</h2>
   <google-map
     height="500px"
@@ -16,7 +16,7 @@
     </map-marker>
   </google-map>
   <form [formGroup]="form" (ngSubmit)="finishSession()">
-    <h2>After Image</h2>
+    <!-- <h2>After Image</h2>
     <input
       formControlName="afterImage"
       required
@@ -33,6 +33,6 @@
       type="submit"
     >
       Finish Session
-    </button>
+    </button> -->
   </form>
 </main>

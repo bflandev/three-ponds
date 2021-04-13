@@ -4,6 +4,14 @@
   flex-direction: column;
   main {
     padding: 32px;
+    display: flex;
+    flex-direction: column;
+    nav {
+      padding: 8px 0 8px 0;
+      button {
+        margin: 0;
+      }
+    }
   }
 }
 .item {
@@ -15,6 +23,13 @@
 }
 h1 {
   padding: 8px 0 8px 0;
+}
+.panel-title {
+  display: flex;
+  justify-content: center;
+}
+button {
+  margin: 16px;
 }
 // section {
 //   padding: 32px;

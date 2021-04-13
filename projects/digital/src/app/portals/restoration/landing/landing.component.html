@@ -3,39 +3,78 @@
     <app-toolbar></app-toolbar>
   </header>
   <main>
-    <h1>Restoration</h1>
-    <mat-accordion *ngIf="vm.showHistory">
-      <mat-expansion-panel hideToggle>
-        <mat-expansion-panel-header class="expansion-header">
-          <mat-panel-title>
-            <b>Your Sessions</b>
-          </mat-panel-title>
-          <mat-panel-description>
-            A history of your restoration sessions
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-        <mat-list>
-          <mat-list-item class="item" *ngFor="let session of vm.sessions">
-            <span>
-              {{ session.start.toDate() | date }} - {{ session.projectDesc }} -
-              {{ session.restorationTypeDesc }}
-            </span>
-            <span class="spacer"></span>
-            <button
-              mat-raised-button
-              color="primary"
-              (click)="selectSession(session)"
-            >
-              View Details
-            </button>
-          </mat-list-item>
-        </mat-list>
-      </mat-expansion-panel>
-    </mat-accordion>
-    <div>
-      <ng-template [cdkPortalOutlet]="vm.selectedPortal"></ng-template>
-    </div>
-
+    <section>
+      <ng-template
+        *ngIf="vm.selectedPortal"
+        [cdkPortalOutlet]="vm.selectedPortal"
+      ></ng-template>
+    </section>
+    <ng-template #dashboard>
+      <nav>
+        <button
+          mat-stroked-button
+          [routerLink]="['/user']"
+          (click)="portalService.selectPortal(null)"
+        >
+          <mat-icon>keyboard_arrow_left</mat-icon>Dashboard
+        </button>
+      </nav>
+      <h1>Restoration Sessions</h1>
+      <mat-accordion *ngIf="vm.showHistory">
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header class="expansion-header">
+            <mat-panel-title class="panel-title">
+              <mat-icon>history</mat-icon>
+              <h3>Session History</h3>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-list>
+            <mat-list-item class="item" *ngFor="let session of vm.sessions">
+              <span>
+                {{ session.start.toDate() | date }}
+              </span>
+              <span class="spacer"></span>
+              <button
+                mat-raised-button
+                color="primary"
+                (click)="
+                  portalService.selectPortal(detailsPortal);
+                  sessionService.selectSession(session)
+                "
+              >
+                View Details
+              </button>
+            </mat-list-item>
+          </mat-list>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <p *ngIf="vm.noSessions">
+        You have no sessions. Start a new session now:
+      </p>
+      <button
+        mat-raised-button
+        color="primary"
+        *ngIf="!vm.openSession"
+        (click)="portalService.selectPortal(startSessionPortal)"
+      >
+        Start New Session
+      </button>
+      <p *ngIf="vm.openSession">
+        You have an open session: {{ vm.openSession.start.toDate() | date }} -
+        {{ vm.openSession.projectDesc }}
+      </p>
+      <button
+        mat-raised-button
+        color="primary"
+        *ngIf="vm.openSession"
+        (click)="
+          portalService.selectPortal(liveSessionPortal);
+          sessionService.selectSession(vm.openSession)
+        "
+      >
+        Continue Session
+      </button>
+    </ng-template>
     <ng-template #startSession>
       <lib-start-session
         (switchPortal)="switchPortal($event)"
@@ -47,28 +86,6 @@
         [session]="vm.openSession"
       ></lib-live-session>
     </ng-template>
-    <ng-template #sessionDetails>
-      <lib-live-session
-        (switchPortal)="switchPortal($event)"
-        [session]="selectedSession"
-      ></lib-live-session>
-    </ng-template>
-
-    <button
-      mat-stroked-button
-      *ngIf="!vm.openSession && vm.selectedPortal !== startSessionPortal"
-      (click)="portalService.selectPortal(startSessionPortal)"
-    >
-      Start New Session
-    </button>
-    <button
-      *ngIf="vm.openSession && vm.selectedPortal !== liveSessionPortal"
-      (click)="
-        portalService.selectPortal(liveSessionPortal);
-        sessionService.selectSession(vm.openSession)
-      "
-    >
-      Continue Session
-    </button>
+    <ng-template #sessionDetails> details </ng-template>
   </main>
 </ng-container>

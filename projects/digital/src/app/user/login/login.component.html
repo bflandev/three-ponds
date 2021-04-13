@@ -1,7 +1,89 @@
 <section>
   <h1>3Ponds Digital</h1>
-  <p>Currently, you need a Google account to login to your account.</p>
-  <button mat-raised-button (click)="auth.googleSignin()">
+  <h3>Login</h3>
+  <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit(loginForm.value)">
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        placeholder="Jamie Doe, etc"
+        autocomplete="off"
+        required
+        formControlName="email"
+      />
+      <mat-error *ngIf="loginForm.get('email').invalid">Required</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input
+        type="password"
+        matInput
+        placeholder="Jamie Doe, etc"
+        autocomplete="off"
+        required
+        formControlName="password"
+      />
+      <mat-error *ngIf="loginForm.get('password').invalid">Required</mat-error>
+    </mat-form-field>
+    <button
+      color="primary"
+      [disabled]="!loginForm.valid"
+      mat-raised-button
+      type="submit"
+    >
+      Log In
+    </button>
+  </form>
+  <mat-divider></mat-divider>
+  <span>or</span>
+  <h4>Sign Up</h4>
+  <form [formGroup]="signupForm" (ngSubmit)="onSignupSubmit(signupForm.value)">
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input
+        matInput
+        placeholder="Jamie Doe, etc"
+        autocomplete="off"
+        required
+        formControlName="name"
+      />
+      <mat-error *ngIf="signupForm.get('email').invalid">Required</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        placeholder="Jamie Doe, etc"
+        autocomplete="off"
+        required
+        formControlName="email"
+      />
+      <mat-error *ngIf="signupForm.get('email').invalid">Required</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input
+        type="password"
+        matInput
+        placeholder="Jamie Doe, etc"
+        autocomplete="off"
+        required
+        formControlName="password"
+      />
+      <mat-error *ngIf="loginForm.get('password').invalid">Required</mat-error>
+    </mat-form-field>
+    <button mat-raised-button type="submit">Sign Up</button>
+  </form>
+
+  <!-- <button mat-raised-button (click)="auth.emailSignIn(email, 'dude1Dude1')">
     Sign In Via Google
   </button>
+
+  <p>New User? Sign up below</p>
+  <button
+    mat-raised-button
+    (click)="auth.signUp(email, 'dude1Dude1', 'Brian Flanagan')"
+  >
+    Sign Up
+  </button> -->
 </section>

@@ -103,8 +103,8 @@ export class StartSessionComponent implements OnInit {
   setupForm() {
     this.form = this.fb.group({
       project: ['', Validators.required],
-      type: ['', Validators.required],
-      beforeImage: ['', Validators.required],
+      // type: ['', Validators.required],
+      // beforeImage: ['', Validators.required],
     });
   }
 
@@ -118,18 +118,15 @@ export class StartSessionComponent implements OnInit {
 
   startSession(user: User) {
     const project = this.form.get('project').value as RestorationProject;
-    const type = this.form.get('type').value as RestorationType;
+    //const type = this.form.get('type').value as RestorationType;
     const session: RestorationSession = {
       //id: this.store.createId(),
-      afterPictureUrl: '',
-      beforePictureUrl: this.form.get('beforeImage').value,
-      // end?:
       latitude: this.lat,
       longitude: this.lng,
       projectId: project.id,
       projectDesc: project.name,
-      restorationTypeId: type.id,
-      restorationTypeDesc: type.name,
+      // restorationTypeId: type.id,
+      // restorationTypeDesc: type.name,
       start: Timestamp.now(),
       uid: user.uid,
     };
@@ -137,7 +134,7 @@ export class StartSessionComponent implements OnInit {
       .collection('restoration-sessions')
       .add(session)
       .then((docRef) => {
-        this.switchPortal.emit('details');
+        this.switchPortal.emit('live');
       });
   }
 }

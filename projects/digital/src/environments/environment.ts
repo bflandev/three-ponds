@@ -12,8 +12,8 @@ export const environment = {
     storageBucket: 'three-ponds-digital.appspot.com',
     messagingSenderId: '479904043239',
     appId: '1:479904043239:web:d911aa08757e5a87735242',
-    measurementId: 'G-LCZMKBCVQR'
-  }
+    measurementId: 'G-LCZMKBCVQR',
+  },
 };
 
 /*

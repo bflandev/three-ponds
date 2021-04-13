@@ -38,6 +38,19 @@ export class AuthService {
     await this.router.navigate(['/user']);
   }
 
+  async emailSignIn(email: string, password: string) {
+    return await this.afAuth.signInWithEmailAndPassword(email, password);
+  }
+
+  async signUp(email: string, password: string, userName: string) {
+    return await this.afAuth
+      .createUserWithEmailAndPassword(email, password)
+      .then((credential) => {
+        let user = credential.user;
+        this.updateUserData({ ...user, displayName: userName });
+      });
+  }
+
   async signOut() {
     this.afAuth.signOut();
     await this.router.navigate(['/']);

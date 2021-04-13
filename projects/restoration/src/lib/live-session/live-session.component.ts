@@ -52,19 +52,29 @@ export class LiveSessionComponent implements OnInit {
   }
 
   setupMap() {
-    navigator.geolocation.getCurrentPosition((position) => {
-      this.center = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude,
-      };
-      this.marker = {
-        position: {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude,
-        },
-        options: { animation: google.maps.Animation.BOUNCE },
-      };
-    });
+    this.center = {
+      lat: this.session.latitude,
+      lng: this.session.longitude,
+    };
+    this.marker = {
+      position: {
+        lat: this.session.latitude,
+        lng: this.session.longitude,
+      },
+    };
+    // navigator.geolocation.getCurrentPosition((position) => {
+    //   this.center = {
+    //     lat: position.coords.latitude,
+    //     lng: position.coords.longitude,
+    //   };
+    //   this.marker = {
+    //     position: {
+    //       lat: position.coords.latitude,
+    //       lng: position.coords.longitude,
+    //     },
+    //     options: { animation: google.maps.Animation.BOUNCE },
+    //   };
+    // });
   }
 
   setupForm() {

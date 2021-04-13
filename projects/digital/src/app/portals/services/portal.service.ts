@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class PortalService {
   selectedPortalSubject = new BehaviorSubject<Portal<any>>(null);
-  overviewPortal$ = this.selectedPortalSubject.asObservable();
+  selectedPortal$ = this.selectedPortalSubject.asObservable();
   constructor() {}
 
   selectPortal(portal: Portal<any>) {

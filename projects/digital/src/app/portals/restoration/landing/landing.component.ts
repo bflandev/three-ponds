@@ -1,12 +1,6 @@
-import {
-  ComponentPortal,
-  DomPortal,
-  Portal,
-  TemplatePortal,
-} from '@angular/cdk/portal';
+import { Portal, TemplatePortal } from '@angular/cdk/portal';
 import {
   Component,
-  ElementRef,
   OnInit,
   TemplateRef,
   ViewChild,
@@ -14,10 +8,7 @@ import {
 } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AuthService } from 'projects/auth/src/public-api';
-import { LiveSessionComponent } from 'projects/restoration/src/lib/live-session/live-session.component';
 import { SessionService } from 'projects/restoration/src/lib/services/session.service';
-import { StartSessionComponent } from 'projects/restoration/src/lib/start-session/start-session.component';
-import { RestorationComponent } from 'projects/restoration/src/public-api';
 import { ObservableService } from 'projects/tools/src/lib/services/observable.service';
 import { combineLatest, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -41,13 +32,14 @@ export class LandingComponent implements OnInit {
   liveSession: TemplateRef<unknown>;
   @ViewChild('sessionDetails')
   sessionDetails: TemplateRef<unknown>;
+  @ViewChild('dashboard')
+  dashboard: TemplateRef<unknown>;
   startSessionPortal: TemplatePortal<any>;
   liveSessionPortal: TemplatePortal<any>;
   detailsPortal: TemplatePortal<any>;
+  dashboardPortal: TemplatePortal<any>;
   constructor(
     public auth: AuthService,
-    private store: AngularFirestore,
-    private observableService: ObservableService,
     public portalService: PortalService,
     public sessionService: SessionService,
     private _viewContainerRef: ViewContainerRef
@@ -66,15 +58,18 @@ export class LandingComponent implements OnInit {
       this.sessionDetails,
       this._viewContainerRef
     );
+
+    this.dashboardPortal = new TemplatePortal(
+      this.dashboard,
+      this._viewContainerRef
+    );
+    this.portalService.selectPortal(this.dashboardPortal);
   }
 
   ngOnInit(): void {
-    this.sessions$ = this.observableService.getObservable<RestorationSession>(
-      this.store.collection('restoration-sessions')
-    );
     this.vm$ = combineLatest([
-      this.sessions$,
-      this.portalService.overviewPortal$,
+      this.sessionService.allSessions$,
+      this.portalService.selectedPortal$,
     ]).pipe(
       map(
         ([sessions, selectedPortal]: [RestorationSession[], Portal<any>]) => ({
@@ -82,6 +77,7 @@ export class LandingComponent implements OnInit {
           selectedPortal,
           openSession: sessions.find((s) => s.end == null),
           showHistory: sessions && sessions.length > 0,
+          noSessions: sessions.length === 0,
         })
       )
     );
@@ -89,6 +85,8 @@ export class LandingComponent implements OnInit {
   switchPortal(event) {
     if (event === 'details') {
       this.portalService.selectPortal(this.detailsPortal);
+    } else if (event === 'live') {
+      this.portalService.selectPortal(this.liveSessionPortal);
     }
   }
   selectSession(portal, session) {
