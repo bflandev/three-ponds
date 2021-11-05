@@ -12,8 +12,8 @@ export const environment = {
     storageBucket: 'three-ponds-digital.appspot.com',
     messagingSenderId: '479904043239',
     appId: '1:479904043239:web:d911aa08757e5a87735242',
-    measurementId: 'G-LCZMKBCVQR',
-  },
+    measurementId: 'G-LCZMKBCVQR'
+  }
 };
 
 /*
@@ -23,4 +23,4 @@ export const environment = {
  * This import should be commented out in production mode because it will have a negative impact
  * on performance if an error is thrown.
  */
-// import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+// import 'zone.js/plugins/zone-error';  // Included with Angular CLI.

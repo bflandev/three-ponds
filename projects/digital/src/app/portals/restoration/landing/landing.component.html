@@ -76,16 +76,44 @@
       </button>
     </ng-template>
     <ng-template #startSession>
+      <nav>
+        <button
+          mat-stroked-button
+          [routerLink]="['/user']"
+          (click)="portalService.selectPortal(null)"
+        >
+          <mat-icon>keyboard_arrow_left</mat-icon>Dashboard
+        </button>
+      </nav>
       <lib-start-session
         (switchPortal)="switchPortal($event)"
       ></lib-start-session>
     </ng-template>
     <ng-template #liveSession>
+      <nav>
+        <button
+          mat-stroked-button
+          [routerLink]="['/user']"
+          (click)="portalService.selectPortal(null)"
+        >
+          <mat-icon>keyboard_arrow_left</mat-icon>Dashboard
+        </button>
+      </nav>
       <lib-live-session
         (switchPortal)="switchPortal($event)"
         [session]="vm.openSession"
       ></lib-live-session>
     </ng-template>
-    <ng-template #sessionDetails> details </ng-template>
+    <ng-template #sessionDetails>
+      <nav>
+        <button
+          mat-stroked-button
+          [routerLink]="['../']"
+          (click)="portalService.selectPortal(null)"
+        >
+          <mat-icon>keyboard_arrow_left</mat-icon>Back
+        </button>
+      </nav>
+    </ng-template>
   </main>
 </ng-container>
