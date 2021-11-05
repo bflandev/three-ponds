@@ -1,4 +1,4 @@
-@import "~@angular/material/theming";
+@use '~@angular/material' as mat;
 :host,
 section {
   padding: 8px;
@@ -11,7 +11,7 @@ section {
 }
 
 .selection-list {
-  @include mat-elevation(2, #071e01, 1);
+  @include mat.elevation(2, #071e01, 1);
   width: 50%;
 }
 
