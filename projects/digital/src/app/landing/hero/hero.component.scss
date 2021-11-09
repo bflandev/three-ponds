@@ -1,23 +1,91 @@
+@import '~scss/screen-size';
+
 h1 {
-  color: #caf0f8;
+  color: #fdfe5e;
+  filter: drop-shadow(2px 2px 2px #f50a3b);
 }
 
 header {
   display: flex;
-  background-color: #0077b6;
+  background-color: #03045e;
   padding: 16px;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 80px;
+}
+
+main {
+  margin-top: 80px;
 }
 
 .parallax {
-  /* The image used */
-  background-image: url('../../../../../../assets/images/live-music.jpg');
-
-  /* Set a specific height */
   min-height: 75vh;
-
-  /* Create the parallax scrolling effect */
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.hero-base {
+  background-image: url(../../images/media2.jpg);
+}
+
+.hero1 {
+  background-image: url(../../images/app-dev.jpg);
+}
+.hero2 {
+  background-image: url(../../images/live-music.jpg);
+}
+.hero3 {
+  background-image: url(../../images/music-prod.jpg);
+}
+aside {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 10% 16px 10%;
+  article {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    .button {
+      background-color: transparent;
+    }
+
+    .icon {
+      font-size: 64px;
+      margin-bottom: 8px;
+      width: 100%;
+      color: #03045e;
+    }
+  }
+}
+
+.text-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 25vh;
+  width: 90%;
+  background-color: rgba($color: #000000, $alpha: 0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.card-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (min-width: $screen-desktop-min) {
 }

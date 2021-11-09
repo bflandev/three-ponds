@@ -104,17 +104,6 @@
             "scripts": []
           }
         },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/digital/tsconfig.app.json",
-              "projects/digital/tsconfig.spec.json",
-              "projects/digital/e2e/tsconfig.json"
-            ],
-            "exclude": ["**/node_modules/**"]
-          }
-        },
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
@@ -158,16 +147,6 @@
             "tsConfig": "projects/vendors/tsconfig.spec.json",
             "karmaConfig": "projects/vendors/karma.conf.js"
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/vendors/tsconfig.lib.json",
-              "projects/vendors/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**"]
-          }
         }
       }
     },
@@ -195,16 +174,6 @@
             "main": "projects/tools/src/test.ts",
             "tsConfig": "projects/tools/tsconfig.spec.json",
             "karmaConfig": "projects/tools/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/tools/tsconfig.lib.json",
-              "projects/tools/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -304,17 +273,6 @@
             "scripts": []
           }
         },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/media/tsconfig.app.json",
-              "projects/media/tsconfig.spec.json",
-              "projects/media/e2e/tsconfig.json"
-            ],
-            "exclude": ["**/node_modules/**"]
-          }
-        },
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
@@ -354,16 +312,6 @@
             "tsConfig": "projects/auth/tsconfig.spec.json",
             "karmaConfig": "projects/auth/karma.conf.js"
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/auth/tsconfig.lib.json",
-              "projects/auth/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**"]
-          }
         }
       }
     },
@@ -391,16 +339,6 @@
             "main": "projects/appointment/src/test.ts",
             "tsConfig": "projects/appointment/tsconfig.spec.json",
             "karmaConfig": "projects/appointment/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/appointment/tsconfig.lib.json",
-              "projects/appointment/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -430,16 +368,6 @@
             "tsConfig": "projects/restoration/tsconfig.spec.json",
             "karmaConfig": "projects/restoration/karma.conf.js"
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/restoration/tsconfig.lib.json",
-              "projects/restoration/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**"]
-          }
         }
       }
     },
@@ -467,18 +395,6 @@
             "main": "projects/portals/src/test.ts",
             "tsConfig": "projects/portals/tsconfig.spec.json",
             "karmaConfig": "projects/portals/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/portals/tsconfig.lib.json",
-              "projects/portals/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
           }
         }
       }
