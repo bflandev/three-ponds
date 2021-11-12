@@ -24,7 +24,12 @@
             "tsConfig": "projects/digital/tsconfig.app.json",
             "assets": [
               "projects/digital/src/favicon.ico",
-              "projects/digital/src/assets"
+              "projects/digital/src/assets",
+              {
+                "glob": "**/*",
+                "input": "assets",
+                "output": "/assets/"
+              }
             ],
             "styles": [
               "scss/mat-theme.scss",

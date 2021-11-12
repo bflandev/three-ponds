@@ -1,85 +1,155 @@
 <header>
-  <h1>3Ponds Digital</h1>
-  <span class="spacer"></span>
-  <button color="accent" mat-raised-button [routerLink]="['/user/login']">
-    Log In
+  <button
+    class="burger"
+    mat-icon-button
+    [matMenuTriggerFor]="menu"
+    aria-label="Example icon-button with a menu"
+  >
+    <mat-icon>menu</mat-icon>
   </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>dialpad</mat-icon>
+      <span>Redial</span>
+    </button>
+    <button mat-menu-item disabled>
+      <mat-icon>voicemail</mat-icon>
+      <span>Check voice mail</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>notifications_off</mat-icon>
+      <span>Disable alerts</span>
+    </button>
+  </mat-menu>
+  <h1>3Ponds Digital</h1>
 </header>
-<main>
-  <section>
-    <aside>
-      <article>
-        <button mat-flat-button class="button">
-          <h2><mat-icon class="icon">computer</mat-icon></h2>
-          <h1>Enterpris Application Development</h1>
-        </button>
-      </article>
-      <article>
-        <button mat-flat-button class="button">
-          <h2><mat-icon class="icon">movie</mat-icon></h2>
-          <h1>Audio/Video Live Streaming & Production</h1>
-        </button>
-      </article>
-      <article>
-        <button mat-flat-button class="button">
-          <h2><mat-icon class="icon">music_note</mat-icon></h2>
-          <h1>Coummunity Endeavors</h1>
-        </button>
-      </article>
-    </aside>
-    <div class="parallax card-list hero-base">
-      <article class="text-card">
-        <h1>3Ponds Digital</h1>
-        <h2>Nurishing Your Needs</h2>
-        <p>hello there. How are you doing?</p>
-      </article>
-    </div>
-    <aside>
-      <article>
-        <h1>Application Development</h1>
-        <ul>
-          <li>Business Analyis</li>
-          <li>Front End Development</li>
-          <li>Data Design</li>
-        </ul>
-      </article>
-    </aside>
 
-    <div class="parallax hero1"></div>
-    <aside>
-      <article>
-        <h1>Video Services</h1>
-        <ul>
-          <li>Business Analyis</li>
-          <li>Front End Development</li>
-          <li>Data Design</li>
-        </ul>
-      </article>
-    </aside>
-
-    <div class="parallax hero2"></div>
-    <aside>
-      <article>
-        <h1>Music Production</h1>
-        <ul>
-          <li>Business Analyis</li>
-          <li>Front End Development</li>
-          <li>Data Design</li>
-        </ul>
-      </article>
-    </aside>
-
-    <div class="parallax hero3"></div>
-    <aside>
-      <article>
-        <h1>Contact Us Now</h1>
-        <ul>
-          <li>Business Analyis</li>
-          <li>Front End Development</li>
-          <li>Data Design</li>
-        </ul>
-      </article>
-    </aside>
+<div class="parallax-video">
+  <video autoplay muted loop>
+    <source src="assets/videos/stream-loop1.mov" type="video/mp4" />
+  </video>
+  <h3>Nourishing Your Dreams</h3>
+  <section class="carousel">
+    <article>
+      <h4>Application Development</h4>
+      <mat-icon>computer</mat-icon>
+      <button mat-raised-button color="primary">Build It</button>
+    </article>
+    <article mat-stroked-button color="accent">
+      <h4>Event Live Streaming</h4>
+      <mat-icon>camera_enhance</mat-icon>
+      <button mat-raised-button color="primary">Book It</button>
+    </article>
+    <article mat-stroked-button color="accent">
+      <h4>Multimedia Production</h4>
+      <mat-icon>camera</mat-icon>
+      <button mat-raised-button color="primary">Start It</button>
+    </article>
   </section>
-</main>
-<footer></footer>
+</div>
+
+<div class="ParallaxContent">
+  <div class="container">
+    <div class="headlines">
+      <h2>Parallax Effect Video Design</h2>
+      <p>Work on all major devices</p>
+    </div>
+
+    <h3>Lorem Ipsum Dolor</h3>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac dapibus
+      dolor. Donec est elit, pellentesque eleifend risus euismod, mattis semper
+      risus. Vestibulum dignissim, velit lacinia viverra bibendum, turpis nisi
+      consequat odio, in rhoncus est purus a sem. Praesent orci velit, laoreet
+      vitae ornare quis, pretium non nibh. Vestibulum ante ipsum primis in
+      faucibus orci luctus et ultrices posuere cubilia Curae; Nullam quis
+      volutpat mi. Donec cursus tincidunt quam vitae convallis. Nullam
+      sollicitudin erat at nisi porttitor tristique. Nulla non eros eget nulla
+      accumsan malesuada vitae eget tellus. Sed ut mauris ut dolor tincidunt
+      fringilla et nec lorem. Phasellus non lacus sodales arcu vestibulum
+      gravida. Fusce eu massa nisl.
+    </p>
+
+    <p>
+      Vestibulum pellentesque finibus sem, fringilla pharetra dolor dictum non.
+      Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis et est
+      in ex eleifend rutrum eu ac neque. Cras non pellentesque nisl. Lorem ipsum
+      dolor sit amet, consectetur adipiscing elit. Nullam sed massa id purus
+      finibus lacinia id sit amet nunc. Mauris sed felis consectetur tortor
+      rhoncus porta sed consectetur justo. Etiam dui arcu, sollicitudin eu
+      scelerisque quis, condimentum nec nulla. Suspendisse et orci vitae ligula
+      molestie viverra vitae et dolor. Cum sociis natoque penatibus et magnis
+      dis parturient montes, nascetur ridiculus mus.
+    </p>
+
+    <p>
+      Nunc a metus eget erat varius volutpat. Etiam condimentum fringilla nisl,
+      at blandit neque finibus et. Aenean dignissim lectus a sapien facilisis
+      rutrum. Donec sodales eu risus sed molestie. Nulla luctus consectetur
+      vehicula. Sed vehicula cursus risus, quis hendrerit quam interdum sit
+      amet. Vestibulum ultricies neque at aliquam venenatis. Maecenas laoreet
+      auctor nulla in pharetra.
+    </p>
+  </div>
+</div>
+<div class="ParallaxImage bg1">
+  <div class="container">
+    <h1>Parallax Effect Video Background</h1>
+  </div>
+</div>
+
+<div class="ParallaxContent">
+  <div class="container">
+    <div class="headlines">
+      <h3>Responisve Design</h3>
+      <p>Work on all major devices</p>
+    </div>
+    <h2>Lorem Ipsum Dolor</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac dapibus
+      dolor. Donec est elit, pellentesque eleifend risus euismod, mattis semper
+      risus. Vestibulum dignissim, velit lacinia viverra bibendum, turpis nisi
+      consequat odio, in rhoncus est purus a sem. Praesent orci velit, laoreet
+      vitae ornare quis, pretium non nibh. Vestibulum ante ipsum primis in
+      faucibus orci luctus et ultrices posuere cubilia Curae; Nullam quis
+      volutpat mi. Donec cursus tincidunt quam vitae convallis. Nullam
+      sollicitudin erat at nisi porttitor tristique. Nulla non eros eget nulla
+      accumsan malesuada vitae eget tellus. Sed ut mauris ut dolor tincidunt
+      fringilla et nec lorem. Phasellus non lacus sodales arcu vestibulum
+      gravida. Fusce eu massa nisl.
+    </p>
+
+    <p>
+      Vestibulum pellentesque finibus sem, fringilla pharetra dolor dictum non.
+      Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis et est
+      in ex eleifend rutrum eu ac neque. Cras non pellentesque nisl. Lorem ipsum
+      dolor sit amet, consectetur adipiscing elit. Nullam sed massa id purus
+      finibus lacinia id sit amet nunc. Mauris sed felis consectetur tortor
+      rhoncus porta sed consectetur justo. Etiam dui arcu, sollicitudin eu
+      scelerisque quis, condimentum nec nulla. Suspendisse et orci vitae ligula
+      molestie viverra vitae et dolor. Cum sociis natoque penatibus et magnis
+      dis parturient montes, nascetur ridiculus mus.
+    </p>
+
+    <p>
+      Nunc a metus eget erat varius volutpat. Etiam condimentum fringilla nisl,
+      at blandit neque finibus et. Aenean dignissim lectus a sapien facilisis
+      rutrum. Donec sodales eu risus sed molestie. Nulla luctus consectetur
+      vehicula. Sed vehicula cursus risus, quis hendrerit quam interdum sit
+      amet. Vestibulum ultricies neque at aliquam venenatis. Maecenas laoreet
+      auctor nulla in pharetra.
+    </p>
+  </div>
+</div>
+
+<div class="ParallaxImage bg2">
+  <div class="container">
+    <h3>Hey, Awesome Stuff</h3>
+  </div>
+</div>
+
+<div class="ParallaxImage bg3">
+  <div class="container">
+    <h3>Design as you want</h3>
+  </div>
+</div>

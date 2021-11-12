@@ -1,4 +1,4 @@
-@import "~@angular/material/theming";
+@import '~@angular/material/theming';
 @include mat-core();
 
 // $mdThemingProvider.definePalette('mcgpalette0', {
@@ -66,8 +66,8 @@ $green-palette: (
     A100: $dark-primary-text,
     A200: $light-primary-text,
     A400: $light-primary-text,
-    A700: $light-primary-text,
-  ),
+    A700: $light-primary-text
+  )
 );
 
 $gray-palette: (
@@ -99,12 +99,78 @@ $gray-palette: (
     A100: $dark-primary-text,
     A200: $light-primary-text,
     A400: $light-primary-text,
-    A700: $light-primary-text,
-  ),
+    A700: $light-primary-text
+  )
 );
 
-$three-ponds-primary: mat-palette($green-palette);
-$three-ponds-accent: mat-palette($gray-palette, 700);
+$autumn-pallet-main: (
+  50: #faf1f1,
+  100: #f2dbdb,
+  200: #e9c3c4,
+  300: #e0abac,
+  400: #da999a,
+  500: #d38788,
+  600: #ce7f80,
+  700: #c87475,
+  800: #c26a6b,
+  900: #b75758,
+  A100: #ffffff,
+  A200: #ffeaea,
+  A400: #ffb7b7,
+  A700: #ff9d9e,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000
+  )
+);
+
+$autumn-pallet-accent: (
+  50: #fbf9f3,
+  100: #f4efe2,
+  200: #ede4ce,
+  300: #e6d9ba,
+  400: #e0d1ac,
+  500: #dbc99d,
+  600: #d7c395,
+  700: #d2bc8b,
+  800: #cdb581,
+  900: #c4a96f,
+  A100: #ffffff,
+  A200: #ffffff,
+  A400: #fff2d8,
+  A700: #ffeabe,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #000000,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000
+  )
+);
+
+$three-ponds-primary: mat-palette($autumn-pallet-main);
+$three-ponds-accent: mat-palette($autumn-pallet-accent);
 $three-ponds-warn: mat-palette($mat-red);
 
 $three-ponds-theme: mat-light-theme(
@@ -112,8 +178,8 @@ $three-ponds-theme: mat-light-theme(
     color: (
       primary: $three-ponds-primary,
       accent: $three-ponds-accent,
-      warn: $three-ponds-warn,
-    ),
+      warn: $three-ponds-warn
+    )
   )
 );
 

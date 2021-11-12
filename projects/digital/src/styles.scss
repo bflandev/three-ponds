@@ -9,21 +9,37 @@ body {
 }
 body {
   margin: 0;
-
   font-family: 'RocknRoll One', sans-serif;
-  background-color: #0077b6;
-  color: white;
+  background-color: #745a75;
+  color: #dbc99d;
 }
 
 .spacer {
   flex-grow: 1;
 }
 
+h1 {
+  font-size: calc(1.25rem + 2vw);
+  color: #daaa7d;
+  filter: drop-shadow(2px 2px 2px black);
+}
+
+h2,
+h3,
+h4 {
+  filter: drop-shadow(2px 2px 2px black);
+}
+
+.burger .mat-icon {
+  font-size: calc(1.5rem + 2vw);
+}
+
 @media (max-width: 600px) {
 }
 
-// #03045e
-// #0077b6
-// #00b4d8
-// #90e0ef
-// #caf0f8
+//8E9763
+//DBC99D
+//DAAA7D
+//D38788
+//A86F81
+//745A75

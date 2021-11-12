@@ -1,91 +1,122 @@
 @import '~scss/screen-size';
 
-h1 {
-  color: #fdfe5e;
-  filter: drop-shadow(2px 2px 2px #f50a3b);
-}
-
-header {
+.carousel {
   display: flex;
-  background-color: #03045e;
-  padding: 16px;
-  position: fixed;
-  top: 0;
-  z-index: 1000;
-  width: 100%;
-  height: 80px;
-}
+  flex-direction: column;
+  grid-gap: 16px;
 
-main {
-  margin-top: 80px;
-}
-
-.parallax {
-  min-height: 75vh;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.hero-base {
-  background-image: url(../../images/media2.jpg);
-}
-
-.hero1 {
-  background-image: url(../../images/app-dev.jpg);
-}
-.hero2 {
-  background-image: url(../../images/live-music.jpg);
-}
-.hero3 {
-  background-image: url(../../images/music-prod.jpg);
-}
-aside {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 10% 16px 10%;
+  h4 {
+    font-size: calc(0.75rem + 1vw);
+  }
+  .mat-icon {
+    font-size: calc(2rem + 4vw);
+    width: 100%;
+    height: 100%;
+    margin: 4px;
+  }
   article {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    align-items: center;
     justify-content: center;
-    h1 {
-      font-size: 1.5rem;
-    }
-
-    .button {
-      background-color: transparent;
-    }
-
-    .icon {
-      font-size: 64px;
-      margin-bottom: 8px;
-      width: 100%;
-      color: #03045e;
-    }
+    align-items: center;
+    background-color: rgba($color: #000000, $alpha: 0.6);
+    padding: 16px;
   }
 }
 
-.text-card {
+header {
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  min-height: 25vh;
-  width: 90%;
-  background-color: rgba($color: #000000, $alpha: 0.6);
-  justify-content: center;
   align-items: center;
+  grid-gap: 32px;
+  margin-bottom: 8px;
+  background-color: rgba($color: #000000, $alpha: 0.6);
+  z-index: 1000;
 }
 
-.card-list {
+.ParallaxImage {
+  background-attachment: fixed;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 50px;
+  padding-top: 50px;
+  height: 50vh;
+}
+.ParallaxImage h1 {
+  text-align: center;
+}
+.ParallaxImage h3 {
+  font-weight: 700;
+  font-size: calc(0.75rem + 2vw);
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 32px;
+}
+
+.bg1 {
+  background-image: url('/assets/images/fall-ground.jpg');
+}
+.bg2 {
+  background-image: url('/assets/images/fall-ground.jpg');
+}
+.bg3 {
+  background-image: url('/assets/images/fall-ground.jpg');
+}
+
+/* Content Parallax Section*/
+.ParallaxContent {
+  background: none repeat scroll 0 0 #745a75;
+  padding: 42px 0;
+  color: #fff;
+}
+.ParallaxContent h3 {
+  color: #fff;
+  text-align: center;
+}
+
+/* Video Parallax Section*/
+.parallax-video {
+  min-height: 70vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  grid-gap: 32px;
+  text-align: center;
+}
+.parallax-video video {
+  min-width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: -9999;
+  background-image: url(/assets/images/water-stream.jpg);
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  //   position: fixed;
+  //   top: 0;
+  left: 0;
+}
+.parallax-video h3 {
+  color: #fff;
+  font-size: calc(1rem + 2vw);
+
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 @media only screen and (min-width: $screen-desktop-min) {
+  .carousel {
+    flex-direction: row;
+    display: flex;
+  }
+  .parallax-video {
+    justify-content: center;
+    grid-gap: 32px;
+    height: 60vh;
+  }
+}
+@media only screen and (min-width: $screen-tablet-min) {
 }
