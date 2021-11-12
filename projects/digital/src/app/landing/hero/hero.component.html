@@ -25,9 +25,16 @@
 </header>
 
 <div class="parallax-video">
-  <video autoplay="true" muted="true" loop="true">
-    <source src="assets/videos/stream-loop1.mov" type="video/mp4" />
+  <video
+    autoPlay
+    muted
+    loop
+    oncanplay="this.play()"
+    onloadedmetadata="this.muted = true"
+  >
+    <source src="assets/videos/stream-loop3.mov" type="video/mp4" />
   </video>
+
   <h3>Nourish Your Dreams</h3>
   <section class="carousel">
     <article>
