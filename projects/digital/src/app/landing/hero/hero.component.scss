@@ -90,7 +90,7 @@ header {
   position: fixed;
   top: 0;
   z-index: -9999;
-  background-image: url(/assets/images/water-stream.jpg);
+  //background-image: url(/assets/images/water-stream.jpg);
   object-fit: cover;
   width: 100vw;
   height: 100vh;
@@ -119,4 +119,13 @@ header {
   }
 }
 @media only screen and (min-width: $screen-tablet-min) {
+  .carousel {
+    flex-direction: row;
+    display: flex;
+  }
+  .parallax-video {
+    justify-content: center;
+    grid-gap: 32px;
+    height: 60vh;
+  }
 }
