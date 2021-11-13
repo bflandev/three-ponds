@@ -4,15 +4,17 @@
   display: flex;
   flex-direction: column;
   grid-gap: 16px;
+  margin-bottom: 16px;
 
   h4 {
     font-size: calc(0.75rem + 1vw);
   }
   .mat-icon {
-    font-size: calc(2rem + 4vw);
+    font-size: calc(8rem + 1vw);
     width: 100%;
     height: 100%;
     margin: 4px;
+    color: #8e9763;
   }
   article {
     display: flex;
@@ -51,19 +53,28 @@ footer {
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
-  padding-bottom: 50px;
-  padding-top: 50px;
   min-height: 50vh;
 
   article {
     background-color: rgba($color: #000000, $alpha: 0.6);
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    text-align: center;
+    justify-content: space-evenly;
     margin: 0 2rem 0 2rem;
     padding: 16px;
+    section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      .mat-icon {
+        font-size: calc(8rem + 2vw);
+        width: 100%;
+        height: 100%;
+        margin: 4px;
+        color: #8e9763;
+      }
+    }
     h3 {
       padding: none;
     }
@@ -91,10 +102,10 @@ footer {
   background-image: url('/assets/images/fall-ground.jpg');
 }
 .bg2 {
-  background-image: url('/assets/images/waterfall.jpg');
+  background-image: url('/assets/images/peach.jpg');
 }
 .bg3 {
-  background-image: url('/assets/images/fall-ground.jpg');
+  background-image: url('/assets/images/jefferson.jpg');
 }
 
 /* Content Parallax Section*/
