@@ -19,14 +19,15 @@ body {
 }
 
 h1 {
-  font-size: calc(1.25rem + 2vw);
+  font-size: calc(1.25rem + 1vw);
   color: #daaa7d;
   filter: drop-shadow(2px 2px 2px black);
 }
 
 h2,
 h3,
-h4 {
+h4,
+p {
   filter: drop-shadow(2px 2px 2px black);
 }
 
