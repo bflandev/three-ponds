@@ -76,6 +76,7 @@ footer {
       li {
         margin: 4px 0 4px 0;
         font-size: 1.25rem;
+        filter: drop-shadow(2px 2px 2px black);
       }
       ul {
         margin: 32px 0 32px 0;
@@ -105,7 +106,7 @@ footer {
 }
 
 .bg1 {
-  background-image: url('/assets/images/fall-ground.jpg');
+  background-image: url('/assets/images/fall-ground3.jpg');
 }
 .bg2 {
   background-image: url('/assets/images/peach.jpg');
