@@ -6,10 +6,11 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 import { VendorsModule } from 'projects/vendors/src/public-api';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxCaptchaModule } from 'ngx-captcha';
+import { ContactLandingComponent } from './contact-landing/contact-landing.component';
 
 
 @NgModule({
-  declarations: [ContactFormComponent],
+  declarations: [ContactFormComponent, ContactLandingComponent],
   imports: [
     CommonModule,
     ContactRoutingModule,

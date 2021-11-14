@@ -8,27 +8,27 @@
     <mat-icon>menu</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item>
+    <button mat-menu-item [routerLink]="['/user', 'login']">
       <mat-icon>account_circle</mat-icon>
       <span>Login</span>
     </button>
-    <button mat-menu-item>
+    <button mat-menu-item [routerLink]="['/about']">
       <mat-icon>info</mat-icon>
       <span>About</span>
     </button>
-    <button mat-menu-item>
+    <button mat-menu-item [routerLink]="['/app']">
       <mat-icon>computer</mat-icon>
       <span>Application Development</span>
     </button>
-    <button mat-menu-item>
+    <button mat-menu-item [routerLink]="['/live-stream']">
       <mat-icon>camera_enhance</mat-icon>
       <span>Live Event Streaming</span>
     </button>
-    <button mat-menu-item>
+    <button mat-menu-item [routerLink]="['/media']">
       <mat-icon>camera</mat-icon>
       <span>Multimedia Production</span>
     </button>
-    <button mat-menu-item>
+    <button mat-menu-item [routerLink]="['/contact']">
       <mat-icon>question_answer</mat-icon>
       <span>Contact</span>
     </button>
@@ -53,17 +53,23 @@
     <article>
       <h4>Application Development</h4>
       <mat-icon>computer</mat-icon>
-      <button mat-raised-button color="primary">Build It</button>
+      <button [routerLink]="['/app']" mat-raised-button color="primary">
+        Build It
+      </button>
     </article>
     <article color="accent">
       <h4>Live Event Streaming</h4>
       <mat-icon>camera_enhance</mat-icon>
-      <button mat-raised-button color="primary">Book It</button>
+      <button mat-raised-button color="primary" [routerLink]="['live-stream']">
+        Book It
+      </button>
     </article>
     <article color="accent">
       <h4>Multimedia Production</h4>
       <mat-icon>camera</mat-icon>
-      <button mat-raised-button color="primary">Make It</button>
+      <button [routerLink]="['/media']" mat-raised-button color="primary">
+        Make It
+      </button>
     </article>
   </section>
 </div>
@@ -185,4 +191,5 @@
 <footer>
   <h1>3Ponds Digital</h1>
   <h2>(267) 571-9401</h2>
+  <!-- <app-contact-form></app-contact-form> -->
 </footer>
