@@ -84,7 +84,9 @@
     etc.
   </p>
   <p>We have the expertise. This blend of analog and digital is our niche.</p>
-  <button mat-raised-button color="primary">Let's Get Started</button>
+  <button [routerLink]="['/contact']" mat-raised-button color="primary">
+    Let's Get Started
+  </button>
 </div>
 <div class="parallax-image bg1">
   <article>
@@ -105,20 +107,24 @@
           <li>Business Intranet</li>
           <li>Music Promotion</li>
         </ul>
-        <button mat-raised-button color="primary">Learn More</button>
+        <button [routerLink]="['/app']" mat-raised-button color="primary">
+          Learn More
+        </button>
       </aside>
     </section>
   </article>
 </div>
 <div class="parallax-content">
-  <h1>We've Seen It All</h1>
+  <h1>If You Build It...</h1>
 
   <p>
     With over 20 years of experience in enterprise application development.
     There isn't a type of project we haven't build.
   </p>
   <p>We have the expertise. This blend of analog and digital is our niche.</p>
-  <button mat-raised-button color="primary">Let's Get Started</button>
+  <button [routerLink]="['/app']" mat-raised-button color="primary">
+    Let's Get Started
+  </button>
 </div>
 <div class="parallax-image bg2">
   <article>
@@ -139,7 +145,13 @@
           <li>Business Intranet</li>
           <li>Music Promotion</li>
         </ul>
-        <button mat-raised-button color="primary">Learn More</button>
+        <button
+          [routerLink]="['/live-stream']"
+          mat-raised-button
+          color="primary"
+        >
+          Learn More
+        </button>
       </aside>
     </section>
   </article>
@@ -152,7 +164,9 @@
     self-contained including power.
   </p>
   <p>We have the expertise. This blend of analog and digital is our niche.</p>
-  <button mat-raised-button color="primary">Let's Get Started</button>
+  <button [routerLink]="['/live-stream']" mat-raised-button color="primary">
+    Let's Get Started
+  </button>
 </div>
 <div class="parallax-image bg3">
   <article>
@@ -173,7 +187,9 @@
           <li>Business Intranet</li>
           <li>Music Promotion</li>
         </ul>
-        <button mat-raised-button color="primary">Learn More</button>
+        <button [routerLink]="['/media']" mat-raised-button color="primary">
+          Learn More
+        </button>
       </aside>
     </section>
   </article>
@@ -186,10 +202,13 @@
     self-contained including power.
   </p>
   <p>We have the expertise. This blend of analog and digital is our niche.</p>
-  <button mat-raised-button color="primary">Let's Get Started</button>
+  <button [routerLink]="['/media']" mat-raised-button color="primary">
+    Let's Get Started
+  </button>
 </div>
 <footer>
   <h1>3Ponds Digital</h1>
   <h2>(267) 571-9401</h2>
+
   <!-- <app-contact-form></app-contact-form> -->
 </footer>

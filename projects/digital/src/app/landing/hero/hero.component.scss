@@ -7,7 +7,7 @@
   margin: 16px;
 
   h4 {
-    font-size: calc(0.75rem + 1vw);
+    font-size: calc(1.25rem + 1vw);
   }
   .mat-icon {
     font-size: calc(8rem + 1vw);
@@ -49,11 +49,13 @@ footer {
 }
 
 .parallax-image {
+  object-fit: cover;
   background-attachment: fixed;
   background-position: 50% 50%;
   background-repeat: no-repeat;
-  background-size: cover;
+
   min-height: 50vh;
+  width: 100vw;
 
   article {
     background-color: rgba($color: #000000, $alpha: 0.4);
@@ -70,6 +72,13 @@ footer {
         height: 100%;
         margin: 4px;
         color: #8e9763;
+      }
+      li {
+        margin: 4px 0 4px 0;
+        font-size: 1.25rem;
+      }
+      ul {
+        margin: 32px 0 32px 0;
       }
     }
     h3 {
@@ -102,7 +111,7 @@ footer {
   background-image: url('/assets/images/peach.jpg');
 }
 .bg3 {
-  background-image: url('/assets/images/jefferson.jpg');
+  background-image: url('/assets/images/fall-ground2.jpg');
 }
 
 /* Content Parallax Section*/
